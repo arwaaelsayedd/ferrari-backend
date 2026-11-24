@@ -1,0 +1,3241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ezz ElArab ATELIER — The Art of Performance</title>
+
+  <!-- Google Fonts: Inter & Cinzel/Montserrat-inspired geometric display pairing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            canvas: 'var(--color-canvas, #181818)',
+            card: 'var(--color-card, #242424)',
+            elevated: 'var(--color-elevated, #303030)',
+            rosso: 'var(--color-accent, #da291c)',
+            rossoHover: 'var(--color-accent-hover, #b81d12)',
+            giallo: '#ffd100',
+            silverLine: '#383838',
+          },
+          letterSpacing: {
+            editorial: '0.22em',
+            ultra: '0.32em',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root {
+      --color-canvas: #181818;
+      --color-card: #242424;
+      --color-elevated: #303030;
+      --color-accent: #da291c;
+      --color-accent-hover: #b81d12;
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #a3a3a3;
+    }
+
+    body {
+      background-color: var(--color-canvas);
+      color: var(--color-text-primary);
+    }
+
+    /* Dynamic theme overrides for utility classes when customized via Admin CMS */
+    .text-neutral-300,
+    .text-neutral-400,
+    .text-neutral-500 {
+      color: var(--color-text-secondary) !important;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-white font-sans antialiased selection:bg-rosso selection:text-white overflow-x-hidden">
+
+  <!-- =====================================================================
+       1. STICKY MINIMALIST TOP NAVBAR
+  ====================================================================== -->
+  <header
+    id="main-navbar"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-canvas/85 backdrop-blur-md border-b border-white/10"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-20 flex items-center justify-between">
+      <!-- Scuderia-Inspired Shield SVG Emblem + Brand Mark -->
+      <a href="#home" class="flex items-center gap-3.5 group focus:outline-none" aria-label="Ezz ElArab Atelier Home">
+        <div class="w-9 h-11 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+          <!-- Custom Geometric Scuderia Shield SVG -->
+          <svg viewBox="0 0 64 80" class="w-full h-full drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer Shield Border -->
+            <path
+              d="M4 6H60V38C60 57.5 46.5 70.5 32 76C17.5 70.5 4 57.5 4 38V6Z"
+              fill="#FFD100"
+              stroke="#181818"
+              stroke-width="3"
+            />
+            <!-- Italian Tricolore Top Bar -->
+            <rect x="7" y="8" width="16.6" height="4.5" fill="#009246" />
+            <rect x="23.6" y="8" width="16.8" height="4.5" fill="#FFFFFF" />
+            <rect x="40.4" y="8" width="16.6" height="4.5" fill="#CE2B37" />
+            <!-- Minimalist Rearing Silhouette Emblem -->
+            <path
+              d="M36 22C34 22 32.5 23.5 32 25.5L28 31L22 33L24 36L29 35L27 43L21 52L24.5 54L30.5 45L33 56H37L36 43L42 36L45 31L40 29L38 25C38 23.2 37.2 22 36 22Z"
+              fill="#181818"
+            />
+            <!-- Scuderia Monogram -->
+            <text x="14" y="64" fill="#181818" font-size="8" font-weight="900" font-family="Inter, sans-serif">S</text>
+            <text x="44" y="64" fill="#181818" font-size="8" font-weight="900" font-family="Inter, sans-serif">F</text>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span id="cms-brand-title" class="text-sm sm:text-base font-extrabold tracking-editorial uppercase text-white">
+            Ezz ElArab
+          </span>
+          <span id="cms-brand-subtitle" class="text-[10px] tracking-ultra uppercase text-neutral-400">
+            ATELIER &bull; MODENA
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-7" aria-label="Primary Navigation">
+        <a
+          id="cms-nav-home"
+          href="#home"
+          class="text-xs font-semibold uppercase tracking-editorial text-neutral-300 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rosso hover:after:w-full after:transition-all after:duration-300"
+        >
+          Home
+        </a>
+        <a
+          id="cms-nav-about"
+          href="#about"
+          class="text-xs font-semibold uppercase tracking-editorial text-neutral-300 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rosso hover:after:w-full after:transition-all after:duration-300"
+        >
+          About
+        </a>
+        <a
+          id="cms-nav-services"
+          href="#services"
+          class="text-xs font-semibold uppercase tracking-editorial text-neutral-300 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rosso hover:after:w-full after:transition-all after:duration-300"
+        >
+          Our Services
+        </a>
+        <a
+          id="cms-nav-clients"
+          href="#clients"
+          class="text-xs font-semibold uppercase tracking-editorial text-neutral-300 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rosso hover:after:w-full after:transition-all after:duration-300"
+        >
+          Our Clients
+        </a>
+        <a
+          id="cms-nav-contact"
+          href="#contact"
+          class="text-xs font-semibold uppercase tracking-editorial text-neutral-300 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rosso hover:after:w-full after:transition-all after:duration-300"
+        >
+          Contact Us
+        </a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2.5">
+        <button
+          id="open-admin-header-btn"
+          type="button"
+          title="Open Site Admin CMS (Ctrl+Shift+A)"
+          class="px-3.5 py-2.5 text-[11px] font-bold uppercase tracking-editorial bg-elevated hover:bg-rosso border border-white/20 hover:border-rosso text-white transition-all duration-300 rounded-none cursor-pointer flex items-center gap-2"
+        >
+          <span class="w-2 h-2 bg-rosso inline-block"></span>
+          <span>Admin</span>
+        </button>
+
+        <button
+          id="cms-header-cta"
+          type="button"
+          data-open-booking="SF90 XX Stradale"
+          class="px-4 sm:px-5 py-2.5 text-[11px] sm:text-xs font-bold uppercase tracking-editorial border border-white/30 text-white hover:border-rosso hover:bg-rosso transition-all duration-300 rounded-none cursor-pointer"
+        >
+          Book a Test Drive
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="lg:hidden p-2.5 text-neutral-300 hover:text-white border border-white/15 rounded-none"
+          aria-label="Toggle Menu"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="square" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-card border-b border-white/10 px-6 py-5 space-y-4">
+      <a id="cms-mnav-home" href="#home" class="block text-xs font-semibold uppercase tracking-editorial text-neutral-200 hover:text-rosso py-1">Home</a>
+      <a id="cms-mnav-about" href="#about" class="block text-xs font-semibold uppercase tracking-editorial text-neutral-200 hover:text-rosso py-1">About</a>
+      <a id="cms-mnav-services" href="#services" class="block text-xs font-semibold uppercase tracking-editorial text-neutral-200 hover:text-rosso py-1">Our Services</a>
+      <a id="cms-mnav-clients" href="#clients" class="block text-xs font-semibold uppercase tracking-editorial text-neutral-200 hover:text-rosso py-1">Our Clients</a>
+      <a id="cms-mnav-contact" href="#contact" class="block text-xs font-semibold uppercase tracking-editorial text-neutral-200 hover:text-rosso py-1">Contact Us</a>
+      <button
+        id="open-admin-mobile-btn"
+        type="button"
+        class="w-full text-left text-xs font-bold uppercase tracking-editorial text-rosso py-2 border-t border-white/10 cursor-pointer"
+      >
+        Open Admin Control Panel &rarr;
+      </button>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       2. FULL-BLEED CINEMATIC HERO SECTION (#home)
+  ====================================================================== -->
+  <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-canvas">
+    <!-- High-Contrast Chiaroscuro Background Visual -->
+    <div class="absolute inset-0 z-0">
+      <img
+        id="cms-hero-image"
+        src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=2200&q=85"
+        onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/181818/da291c?text=SCUDERIA+ROSSO+CORSA';"
+        alt="Rosso Corsa Supercar in Chiaroscuro Studio Lighting"
+        class="w-full h-full object-cover object-center scale-105 filter contrast-125 brightness-75"
+      />
+      <!-- Dramatic Chiaroscuro Vignette & Editorial Gradients -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#181818] via-[#181818]/80 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#181818] via-transparent to-[#181818]/60"></div>
+      <!-- Subtle Racing Telemetry Grid Overlay -->
+      <div class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:6rem_6rem]"></div>
+    </div>
+
+    <!-- Hero Editorial Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 w-full py-20 lg:py-28">
+      <div class="max-w-3xl">
+        <!-- Eyebrow Tag -->
+        <div class="inline-flex items-center gap-3 mb-6">
+          <span class="w-10 h-[2px] bg-rosso"></span>
+          <span id="cms-hero-eyebrow" class="text-xs font-bold uppercase tracking-ultra text-rosso">
+            SCUDERIA GT &bull; SPECIAL SERIES
+          </span>
+        </div>
+
+        <!-- Bold Display Typography -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-[0.98] text-white mb-6">
+          <span id="cms-hero-title-line1">THE ART OF</span> <br />
+          <span id="cms-hero-title-line2" class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">
+            PERFORMANCE
+          </span>
+        </h1>
+
+        <p id="cms-hero-subheadline" class="text-sm sm:text-base lg:text-lg text-neutral-300 font-light leading-relaxed max-w-xl mb-10 border-l-2 border-rosso pl-5">
+          Forged in wind-tunnel precision and Ezz ElArab racing DNA. Experience unadulterated V12 emotion paired with Formula 1 hybrid aerodynamics.
+        </p>
+
+        <!-- Sharp 0px Primary & Secondary CTAs -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a
+            id="cms-hero-cta-primary"
+            href="#models"
+            class="px-8 py-4 bg-rosso hover:bg-rossoHover text-white text-xs font-bold uppercase tracking-editorial text-center transition-all duration-300 rounded-none shadow-lg shadow-rosso/20"
+          >
+            Explore The Range
+          </a>
+          <a
+            id="cms-hero-cta-secondary"
+            href="#configurator"
+            class="px-8 py-4 bg-transparent border border-white/40 hover:border-white hover:bg-white/5 text-white text-xs font-bold uppercase tracking-editorial text-center transition-all duration-300 rounded-none"
+          >
+            Atelier Configurator
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Editorial Coordinates & Scroll Cue -->
+      <div class="mt-20 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] uppercase tracking-editorial text-neutral-400">
+        <div>44&deg;31&prime;58&Prime;N 10&deg;51&prime;51&Prime;E &mdash; FIORANO TEST TRACK</div>
+        <div class="flex items-center gap-3">
+          <span>SCROLL TO DISCOVER</span>
+          <span class="w-8 h-[1px] bg-rosso"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       3. KEY PERFORMANCE METRICS STRIP
+  ====================================================================== -->
+  <section aria-label="Key Performance Telemetry" class="bg-card border-y border-white/10 relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+        <!-- Metric 1 -->
+        <div class="py-8 sm:px-6 lg:px-8 first:pl-0 group">
+          <div class="text-[11px] font-semibold uppercase tracking-editorial text-neutral-400 mb-2 flex items-center justify-between">
+            <span id="cms-metric1-label">TOP SPEED</span>
+            <span class="w-2 h-2 bg-rosso"></span>
+          </div>
+          <div class="text-3xl sm:text-4xl font-black tracking-tight text-white">
+            <span id="cms-metric1-value">340</span> <span id="cms-metric1-unit" class="text-base font-medium text-neutral-400 uppercase">km/h</span>
+          </div>
+          <p id="cms-metric1-sub" class="text-xs text-neutral-500 mt-1.5 uppercase tracking-wider">Active Aero Low-Drag Mode</p>
+        </div>
+
+        <!-- Metric 2 -->
+        <div class="py-8 sm:px-6 lg:px-8 group">
+          <div id="cms-metric2-label" class="text-[11px] font-semibold uppercase tracking-editorial text-neutral-400 mb-2">
+            0–100 KM/H SPRINT
+          </div>
+          <div class="text-3xl sm:text-4xl font-black tracking-tight text-white">
+            <span id="cms-metric2-value">2.5</span> <span id="cms-metric2-unit" class="text-base font-medium text-neutral-400 uppercase">sec</span>
+          </div>
+          <p id="cms-metric2-sub" class="text-xs text-neutral-500 mt-1.5 uppercase tracking-wider">F1-Trac Launch Control</p>
+        </div>
+
+        <!-- Metric 3 -->
+        <div class="py-8 sm:px-6 lg:px-8 group">
+          <div id="cms-metric3-label" class="text-[11px] font-semibold uppercase tracking-editorial text-neutral-400 mb-2">
+            HYBRID OUTPUT
+          </div>
+          <div class="text-3xl sm:text-4xl font-black tracking-tight text-white">
+            <span id="cms-metric3-value">1,000</span> <span id="cms-metric3-unit" class="text-base font-medium text-rosso uppercase">cv</span>
+          </div>
+          <p id="cms-metric3-sub" class="text-xs text-neutral-500 mt-1.5 uppercase tracking-wider">Triple Electric Motor Torque Vectoring</p>
+        </div>
+
+        <!-- Metric 4 -->
+        <div class="py-8 sm:px-6 lg:px-8 last:pr-0 group">
+          <div id="cms-metric4-label" class="text-[11px] font-semibold uppercase tracking-editorial text-neutral-400 mb-2">
+            POWERTRAIN ARCHITECTURE
+          </div>
+          <div class="text-2xl sm:text-3xl font-black tracking-tight text-white pt-1">
+            <span id="cms-metric4-value">V12 / V8</span> <span id="cms-metric4-unit" class="text-sm font-semibold text-neutral-400 block sm:inline">TWIN-TURBO</span>
+          </div>
+          <p id="cms-metric4-sub" class="text-xs text-neutral-500 mt-1.5 uppercase tracking-wider">9,500 RPM Redline Symphony</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       4. INTERACTIVE MODELS SHOWCASE WITH CATEGORY FILTER TABS
+  ====================================================================== -->
+  <section id="models" class="py-24 lg:py-32 bg-canvas">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <!-- Section Header & Filter Tabs -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14 border-b border-white/10 pb-8">
+        <div>
+          <span id="cms-models-eyebrow" class="text-xs font-bold uppercase tracking-ultra text-rosso block mb-3">
+            CURRENT LINEUP
+          </span>
+          <h2 id="cms-models-title" class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
+            THE Ezz ElArab FLEET
+          </h2>
+        </div>
+
+        <!-- Filter Tabs (Sharp 0px corners) -->
+        <div id="model-filter-tabs" class="flex flex-wrap gap-2" role="tablist" aria-label="Filter Models by Category">
+          <button
+            type="button"
+            data-category="All"
+            class="filter-tab px-5 py-3 text-xs font-bold uppercase tracking-editorial bg-rosso text-white border border-rosso transition-all rounded-none cursor-pointer"
+          >
+            All
+          </button>
+          <button
+            type="button"
+            data-category="Range"
+            class="filter-tab px-5 py-3 text-xs font-bold uppercase tracking-editorial bg-card text-neutral-300 hover:text-white border border-white/10 transition-all rounded-none cursor-pointer"
+          >
+            Range
+          </button>
+          <button
+            type="button"
+            data-category="Special Series"
+            class="filter-tab px-5 py-3 text-xs font-bold uppercase tracking-editorial bg-card text-neutral-300 hover:text-white border border-white/10 transition-all rounded-none cursor-pointer"
+          >
+            Special Series
+          </button>
+          <button
+            type="button"
+            data-category="Icona"
+            class="filter-tab px-5 py-3 text-xs font-bold uppercase tracking-editorial bg-card text-neutral-300 hover:text-white border border-white/10 transition-all rounded-none cursor-pointer"
+          >
+            Icona
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Models Grid -->
+      <div id="models-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Cards injected dynamically by modular JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5. INTERACTIVE COLOR & TRIM PREVIEWER (ATELIER CONFIGURATOR)
+  ====================================================================== -->
+  <section id="configurator" class="py-24 lg:py-32 bg-card border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="mb-12">
+        <span class="text-xs font-bold uppercase tracking-ultra text-rosso block mb-3">
+          TAILOR MADE &bull; STUDIO
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
+          ATELIER PAINT &amp; CALIPER STUDIO
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <!-- Left 7 Cols: Interactive Chiaroscuro Studio Stage -->
+        <div class="lg:col-span-7 bg-canvas border border-white/10 p-6 sm:p-10 flex flex-col justify-between relative overflow-hidden">
+          <!-- Dynamic Ambient Glow synced with Paint Color -->
+          <div
+            id="studio-ambient-glow"
+            class="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-20 blur-3xl transition-colors duration-500 pointer-events-none"
+            style="background-color: #da291c;"
+          ></div>
+
+          <!-- Top Telemetry Strip inside Previewer -->
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 z-10">
+            <div>
+              <span class="text-[10px] uppercase tracking-ultra text-neutral-400 block">SELECTED LIVERY</span>
+              <span id="preview-paint-title" class="text-lg sm:text-xl font-extrabold uppercase tracking-wider text-white">
+                ROSSO CORSA
+              </span>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] uppercase tracking-ultra text-neutral-400 block">PAINT CODE</span>
+              <span id="preview-paint-code" class="text-xs font-mono font-bold text-rosso">
+                FER 322 &bull; HISTORICAL SOLID
+              </span>
+            </div>
+          </div>
+
+          <!-- Custom Precision Vector GT Silhouette + Dynamic Livery & Brake Caliper Visualizer -->
+          <div class="my-10 relative flex items-center justify-center z-10">
+            <svg
+              viewBox="0 0 800 300"
+              class="w-full h-auto max-h-72 drop-shadow-2xl"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="Interactive GT Supercar Livery Preview"
+            >
+              <!-- Studio Floor Reflection Line -->
+              <line x1="30" y1="248" x2="770" y2="248" stroke="#383838" stroke-width="2" />
+              <ellipse cx="400" cy="252" rx="340" ry="10" fill="#000000" fill-opacity="0.65" />
+
+              <!-- Aerodynamic Supercar Body Shell (Dynamically Colored) -->
+              <path
+                id="svg-car-body"
+                d="M78 212 C72 195, 86 174, 135 162 C195 148, 255 136, 315 104 C368 78, 445 76, 515 98 C578 118, 635 138, 702 152 C724 156, 736 172, 732 196 L722 214 L645 216 C642 178, 612 152, 574 152 C536 152, 506 178, 503 216 L282 216 C279 178, 249 152, 211 152 C173 152, 143 178, 140 216 L78 212 Z"
+                fill="#da291c"
+                class="transition-colors duration-500"
+              />
+
+              <!-- Carbon Fiber Front Splitter, Side Skirt & Rear Diffuser -->
+              <path
+                d="M74 212 L140 216 L140 224 L68 220 Z M282 215 L503 215 L503 224 L282 224 Z M645 215 L732 212 L738 222 L645 224 Z"
+                fill="#141414"
+              />
+
+              <!-- Tinted Greenhouse / Cockpit Canopy -->
+              <path
+                d="M285 134 C332 102, 412 92, 488 108 C525 116, 552 132, 566 142 L385 144 C342 144, 305 140, 285 134 Z"
+                fill="#111111"
+                stroke="#3a3a3a"
+                stroke-width="2"
+              />
+
+              <!-- Side Air Intake Sculpting -->
+              <path
+                d="M365 164 L468 152 L452 194 L350 194 Z"
+                fill="#181818"
+                fill-opacity="0.85"
+              />
+
+              <!-- Scuderia Fender Shield -->
+              <polygon points="274,152 288,152 285,166 281,170 277,166" fill="#FFD100" />
+
+              <!-- Headlight LED Blade -->
+              <path d="M104 176 L154 166 L148 174 L102 182 Z" fill="#FFFFFF" />
+
+              <!-- REAR WHEEL & BRAKE ASSEMBLY -->
+              <circle cx="574" cy="212" r="46" fill="#121212" stroke="#2c2c2c" stroke-width="4" />
+              <circle cx="574" cy="212" r="32" fill="#222222" stroke="#555555" stroke-width="2" />
+              <!-- Carbon Ceramic Disc -->
+              <circle cx="574" cy="212" r="24" fill="#3a3a3a" />
+              <!-- Rear Brake Caliper (Dynamically Colored) -->
+              <path
+                id="svg-caliper-rear"
+                d="M552 196 A24 24 0 0 1 572 188 L572 200 A14 14 0 0 0 560 205 Z"
+                fill="#ffd100"
+                class="transition-colors duration-300"
+              />
+              <!-- Center Lock Hub -->
+              <circle cx="574" cy="212" r="7" fill="#181818" stroke="#888888" stroke-width="2" />
+
+              <!-- FRONT WHEEL & BRAKE ASSEMBLY -->
+              <circle cx="211" cy="212" r="46" fill="#121212" stroke="#2c2c2c" stroke-width="4" />
+              <circle cx="211" cy="212" r="32" fill="#222222" stroke="#555555" stroke-width="2" />
+              <!-- Carbon Ceramic Disc -->
+              <circle cx="211" cy="212" r="24" fill="#3a3a3a" />
+              <!-- Front Brake Caliper (Dynamically Colored) -->
+              <path
+                id="svg-caliper-front"
+                d="M228 194 A24 24 0 0 1 235 214 L223 214 A14 14 0 0 0 219 202 Z"
+                fill="#ffd100"
+                class="transition-colors duration-300"
+              />
+              <!-- Center Lock Hub -->
+              <circle cx="211" cy="212" r="7" fill="#181818" stroke="#888888" stroke-width="2" />
+            </svg>
+          </div>
+
+          <!-- Dynamic Spec Footer -->
+          <div class="grid grid-cols-3 gap-4 border-t border-white/10 pt-5 z-10 text-xs">
+            <div>
+              <span class="text-neutral-500 uppercase tracking-wider block text-[10px]">CALIPER FINISH</span>
+              <span id="preview-caliper-name" class="font-bold uppercase text-white mt-0.5 block">Giallo Modena</span>
+            </div>
+            <div>
+              <span class="text-neutral-500 uppercase tracking-wider block text-[10px]">INTERIOR TRIM</span>
+              <span id="preview-interior-name" class="font-bold uppercase text-white mt-0.5 block">Nero Alcantara &amp; Red Stitching</span>
+            </div>
+            <div class="text-right">
+              <span class="text-neutral-500 uppercase tracking-wider block text-[10px]">EST. DELIVERY</span>
+              <span class="font-bold uppercase text-white mt-0.5 block">Q3 &bull; Ezz ElArab</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 5 Cols: Swatch Controls & Specification Summary -->
+        <div class="lg:col-span-5 bg-elevated border border-white/10 p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-editorial text-white mb-6 pb-3 border-b border-white/10">
+              1. EXTERIOR PAINTWORK
+            </h3>
+
+            <!-- 4 Signature Paint Swatches -->
+            <div id="paint-swatches" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              <button
+                type="button"
+                data-paint="Rosso Corsa"
+                data-hex="#da291c"
+                data-code="FER 322 • HISTORICAL SOLID"
+                data-interior="Nero Alcantara & Rosso Stitching"
+                class="paint-btn flex items-center gap-3.5 p-3.5 bg-canvas border-2 border-rosso text-left transition-all rounded-none cursor-pointer"
+              >
+                <span class="w-7 h-7 shrink-0 border border-white/20" style="background-color: #da291c;"></span>
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-white block">Rosso Corsa</span>
+                  <span class="text-[10px] text-neutral-400 uppercase">Racing Red</span>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                data-paint="Giallo Modena"
+                data-hex="#ffd100"
+                data-code="FER 4305 • HERITAGE YELLOW"
+                data-interior="Nero Leather & Giallo Piping"
+                class="paint-btn flex items-center gap-3.5 p-3.5 bg-canvas border border-white/15 hover:border-white/40 text-left transition-all rounded-none cursor-pointer"
+              >
+                <span class="w-7 h-7 shrink-0 border border-white/20" style="background-color: #ffd100;"></span>
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-white block">Giallo Modena</span>
+                  <span class="text-[10px] text-neutral-400 uppercase">Modena Yellow</span>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                data-paint="Nero Daytona"
+                data-hex="#1f1f23"
+                data-code="FER 508 • METALLIC OBSIDIAN"
+                data-interior="Cuoio Heritage Saddle Leather"
+                class="paint-btn flex items-center gap-3.5 p-3.5 bg-canvas border border-white/15 hover:border-white/40 text-left transition-all rounded-none cursor-pointer"
+              >
+                <span class="w-7 h-7 shrink-0 border border-white/30" style="background-color: #1f1f23;"></span>
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-white block">Nero Daytona</span>
+                  <span class="text-[10px] text-neutral-400 uppercase">Metallic Black</span>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                data-paint="Bianco Avus"
+                data-hex="#f2f2f2"
+                data-code="FER 100 • GLOSS BIANCO"
+                data-interior="Rosso Ferrari Full Aniline"
+                class="paint-btn flex items-center gap-3.5 p-3.5 bg-canvas border border-white/15 hover:border-white/40 text-left transition-all rounded-none cursor-pointer"
+              >
+                <span class="w-7 h-7 shrink-0 border border-white/20" style="background-color: #f2f2f2;"></span>
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-white block">Bianco Avus</span>
+                  <span class="text-[10px] text-neutral-400 uppercase">Pure White</span>
+                </div>
+              </button>
+            </div>
+
+            <h3 class="text-sm font-bold uppercase tracking-editorial text-white mb-5 pb-3 border-b border-white/10">
+              2. CARBON-CERAMIC BRAKE CALIPERS
+            </h3>
+
+            <!-- Caliper Swatches -->
+            <div id="caliper-swatches" class="grid grid-cols-4 gap-2.5 mb-8">
+              <button
+                type="button"
+                data-caliper="Giallo Modena"
+                data-caliper-hex="#ffd100"
+                class="caliper-btn p-3 bg-canvas border-2 border-rosso flex flex-col items-center gap-2 transition-all rounded-none cursor-pointer"
+              >
+                <span class="w-5 h-5" style="background-color: #ffd100;"></span>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-white">Giallo</span>
+              </button>
+
+              <button
+                type="button"
+                data-caliper="Rosso Corsa"
+                data-caliper-hex="#da291c"
+                class="caliper-btn p-3 bg-canvas border border-white/15 hover:border-white/40 flex flex-col items-center gap-2 transition-all rounded-none cursor-pointer"
+              >
+                <span class="w-5 h-5" style="background-color: #da291c;"></span>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-300">Rosso</span>
+              </button>
+
+              <button
+                type="button"
+                data-caliper="Nero Gloss"
+                data-caliper-hex="#111111"
+                class="caliper-btn p-3 bg-canvas border border-white/15 hover:border-white/40 flex flex-col items-center gap-2 transition-all rounded-none cursor-pointer"
+              >
+                <span class="w-5 h-5 border border-white/30" style="background-color: #111111;"></span>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-300">Nero</span>
+              </button>
+
+              <button
+                type="button"
+                data-caliper="Alluminio"
+                data-caliper-hex="#b4b8bf"
+                class="caliper-btn p-3 bg-canvas border border-white/15 hover:border-white/40 flex flex-col items-center gap-2 transition-all rounded-none cursor-pointer"
+              >
+                <span class="w-5 h-5" style="background-color: #b4b8bf;"></span>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-300">Silver</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Configuration Action CTA -->
+          <div class="pt-5 border-t border-white/10">
+            <div class="flex items-center justify-between text-xs mb-4">
+              <span class="uppercase tracking-wider text-neutral-400">ATELIER BUILD SUMMARY</span>
+              <span id="config-summary-badge" class="font-bold uppercase text-white">
+                Rosso Corsa / Giallo Calipers
+              </span>
+            </div>
+            <button
+              id="request-build-btn"
+              type="button"
+              class="w-full py-4 bg-rosso hover:bg-rossoHover text-white text-xs font-bold uppercase tracking-editorial transition-colors rounded-none cursor-pointer"
+            >
+              Reserve This Specification
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       6. ABOUT SECTION (#about) — FORMULA 1 & Ezz ElArab HERITAGE
+  ====================================================================== -->
+  <section id="about" class="py-24 lg:py-32 bg-canvas border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+        <div class="lg:col-span-6">
+          <div class="relative border border-white/15 bg-card overflow-hidden">
+            <img
+              id="cms-about-image"
+              src="https://images.unsplash.com/photo-1541443131876-44b03de101c5?auto=format&fit=crop&w=1400&q=80"
+              onerror="this.onerror=null;this.src='https://placehold.co/1200x800/242424/da291c?text=SCUDERIA+FORMULA+1';"
+              alt="Scuderia Motorsport Aerodynamics"
+              class="w-full h-80 sm:h-96 object-cover filter contrast-125 brightness-90"
+            />
+            <div id="cms-about-badge" class="absolute bottom-0 left-0 bg-rosso px-4 py-2 text-[11px] font-bold uppercase tracking-editorial text-white">
+              ABOUT Ezz ElArab ATELIER
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-6">
+          <span id="cms-about-eyebrow" class="text-xs font-bold uppercase tracking-ultra text-rosso block">
+            SINCE 1947 &bull; TRACK TO ROAD
+          </span>
+          <h2 id="cms-about-title" class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white leading-tight">
+            ARCHITECTS OF SPEED &amp; ITALIAN CRAFTSMANSHIP
+          </h2>
+          <p id="cms-about-body" class="text-sm sm:text-base text-neutral-400 leading-relaxed">
+            Born on the circuits of Modena and perfected at Pista di Fiorano, Ezz ElArab Atelier unites Formula 1 aerodynamic engineering with bespoke hand-stitched luxury. Every chassis, active S-Duct, and V12 powertrain is sculpted to deliver pure driver emotion.
+          </p>
+          <div class="grid grid-cols-3 gap-6 pt-4 border-t border-white/10">
+            <div>
+              <span id="cms-about-stat1-val" class="text-2xl font-black text-white block">1947</span>
+              <span id="cms-about-stat1-lbl" class="text-[11px] uppercase tracking-wider text-neutral-400">Founding Legacy</span>
+            </div>
+            <div>
+              <span id="cms-about-stat2-val" class="text-2xl font-black text-white block">390 KG</span>
+              <span id="cms-about-stat2-lbl" class="text-[11px] uppercase tracking-wider text-neutral-400">Active Downforce</span>
+            </div>
+            <div>
+              <span id="cms-about-stat3-val" class="text-2xl font-black text-rosso block">100%</span>
+              <span id="cms-about-stat3-lbl" class="text-[11px] uppercase tracking-wider text-neutral-400">Handcrafted in Italy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Heritage Milestones Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-card border border-white/10 p-7">
+          <span class="text-xs font-mono text-rosso font-bold block mb-3">1947 &bull; 125 S</span>
+          <h3 class="text-lg font-extrabold uppercase tracking-wider text-white mb-2">THE FIRST V12</h3>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            The 1.5-litre Gioachino Colombo V12 debuts at Piacenza, establishing an unbroken lineage of twelve-cylinder symphony.
+          </p>
+        </div>
+        <div class="bg-card border border-white/10 p-7">
+          <span class="text-xs font-mono text-rosso font-bold block mb-3">1962 &bull; 250 GTO</span>
+          <h3 class="text-lg font-extrabold uppercase tracking-wider text-white mb-2">AERODYNAMIC SCULPTURE</h3>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            Wind-tunnel sculpted aluminum coachwork uniting GT endurance dominance with timeless automotive proportion.
+          </p>
+        </div>
+        <div class="bg-card border border-white/10 p-7">
+          <span class="text-xs font-mono text-rosso font-bold block mb-3">1987 &bull; F40</span>
+          <h3 class="text-lg font-extrabold uppercase tracking-wider text-white mb-2">KEVLAR &amp; TWIN-TURBO</h3>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            Unfiltered composite engineering delivering raw twin-turbocharged response without electronic compromise.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       7. OUR SERVICES SECTION (#services)
+  ====================================================================== -->
+  <section id="services" class="py-24 lg:py-32 bg-card border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6 border-b border-white/10 pb-8">
+        <div>
+          <span id="cms-services-eyebrow" class="text-xs font-bold uppercase tracking-ultra text-rosso block mb-3">
+            BESPOKE OWNERSHIP &amp; TRACK PROGRAMS
+          </span>
+          <h2 id="cms-services-title" class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
+            OUR SERVICES
+          </h2>
+        </div>
+        <p id="cms-services-subtitle" class="text-xs sm:text-sm text-neutral-400 max-w-md">
+          Comprehensive white-glove commissioning, factory-certified restoration, and private telemetry track support.
+        </p>
+      </div>
+
+      <div id="cms-services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Rendered dynamically from CMS state -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       8. OUR CLIENTS SECTION (#clients)
+  ====================================================================== -->
+  <section id="clients" class="py-24 lg:py-32 bg-canvas border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6 border-b border-white/10 pb-8">
+        <div>
+          <span id="cms-clients-eyebrow" class="text-xs font-bold uppercase tracking-ultra text-rosso block mb-3">
+            GLOBAL COLLECTORS &amp; RACING PATRONS
+          </span>
+          <h2 id="cms-clients-title" class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
+            OUR CLIENTS
+          </h2>
+        </div>
+        <p id="cms-clients-subtitle" class="text-xs sm:text-sm text-neutral-400 max-w-md">
+          Trusted by private collectors, GT endurance teams, and bespoke automotive connoisseurs worldwide.
+        </p>
+      </div>
+
+      <!-- Client Testimonials / Collector Stories -->
+      <div id="cms-clients-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <!-- Rendered dynamically from CMS state -->
+      </div>
+
+      <!-- Institutional Partners & Circuits Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="bg-card border border-white/10 py-5 px-4 text-center">
+          <span class="text-xs font-black uppercase tracking-editorial text-neutral-300">PISTA DI FIORANO</span>
+        </div>
+        <div class="bg-card border border-white/10 py-5 px-4 text-center">
+          <span class="text-xs font-black uppercase tracking-editorial text-neutral-300">SCUDERIA CORSE</span>
+        </div>
+        <div class="bg-card border border-white/10 py-5 px-4 text-center">
+          <span class="text-xs font-black uppercase tracking-editorial text-neutral-300">MUGELLO CIRCUIT</span>
+        </div>
+        <div class="bg-card border border-white/10 py-5 px-4 text-center">
+          <span class="text-xs font-black uppercase tracking-editorial text-neutral-300">MONACO GT CLUB</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       9. CONTACT US SECTION (#contact)
+  ====================================================================== -->
+  <section id="contact" class="py-24 lg:py-32 bg-card">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left 5 Cols: Global Atelier Flagships -->
+        <div class="lg:col-span-5 space-y-8">
+          <div>
+            <span id="cms-contact-eyebrow" class="text-xs font-bold uppercase tracking-ultra text-rosso block mb-3">
+              PRIVATE CLIENT DESK
+            </span>
+            <h2 id="cms-contact-title" class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
+              CONTACT US
+            </h2>
+            <p id="cms-contact-subtitle" class="text-xs sm:text-sm text-neutral-400 leading-relaxed mt-4">
+              Connect directly with our Senior Ezz ElArab Specialists for vehicle allocations, Tailor Made appointments, or private track sessions.
+            </p>
+          </div>
+
+          <div class="space-y-5 border-t border-white/10 pt-6 text-xs">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-ultra text-rosso block mb-1">HEADQUARTERS &amp; FACTORY</span>
+              <p id="cms-contact-address" class="text-white font-semibold">Via Abetone Inferiore 4, 41053 Ezz ElArab (MO), Italy</p>
+              <p class="text-neutral-400 mt-0.5"><span id="cms-contact-phone">+39 0536 949111</span> &bull; <span id="cms-contact-email">concierge@Ezz ElArab-atelier.it</span></p>
+            </div>
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-ultra text-rosso block mb-1">MIDDLE EAST FLAGSHIP</span>
+              <p id="cms-contact-flagship" class="text-white font-semibold">New Cairo Luxury Boulevard &bull; DIFC Gate Village</p>
+              <p id="cms-contact-hours" class="text-neutral-400 mt-0.5">Private Appointments &bull; Mon – Sat, 10:00 – 21:00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 7 Cols: Direct Inquiry Form -->
+        <div class="lg:col-span-7 bg-canvas border border-white/10 p-6 sm:p-10">
+          <form id="contact-section-form" class="space-y-5" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="contact-name" class="block text-[11px] font-bold uppercase tracking-editorial text-neutral-300 mb-2">
+                  Full Name *
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  required
+                  placeholder="Alessandro Conti"
+                  class="w-full px-4 py-3.5 bg-card border border-white/15 focus:border-rosso focus:outline-none text-sm text-white rounded-none"
+                />
+              </div>
+              <div>
+                <label for="contact-email" class="block text-[11px] font-bold uppercase tracking-editorial text-neutral-300 mb-2">
+                  Email Address *
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  required
+                  placeholder="client@domain.com"
+                  class="w-full px-4 py-3.5 bg-card border border-white/15 focus:border-rosso focus:outline-none text-sm text-white rounded-none"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="contact-topic" class="block text-[11px] font-bold uppercase tracking-editorial text-neutral-300 mb-2">
+                  Inquiry Subject
+                </label>
+                <select
+                  id="contact-topic"
+                  class="w-full px-4 py-3.5 bg-card border border-white/15 focus:border-rosso focus:outline-none text-sm text-white rounded-none"
+                >
+                  <option value="Vehicle Allocation">Vehicle Allocation &amp; Pricing</option>
+                  <option value="Tailor Made Studio">Tailor Made Atelier Consultation</option>
+                  <option value="Corse Clienti">Corse Clienti Track Experience</option>
+                  <option value="Officine Classiche">Officine Classiche Certification</option>
+                </select>
+              </div>
+              <div>
+                <label for="contact-phone" class="block text-[11px] font-bold uppercase tracking-editorial text-neutral-300 mb-2">
+                  Telephone
+                </label>
+                <input
+                  id="contact-phone"
+                  type="tel"
+                  placeholder="+20 100 000 0000"
+                  class="w-full px-4 py-3.5 bg-card border border-white/15 focus:border-rosso focus:outline-none text-sm text-white rounded-none"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="contact-message" class="block text-[11px] font-bold uppercase tracking-editorial text-neutral-300 mb-2">
+                Message *
+              </label>
+              <textarea
+                id="contact-message"
+                rows="4"
+                required
+                placeholder="Specify your preferred model, bespoke livery requirements, or private viewing dates..."
+                class="w-full px-4 py-3.5 bg-card border border-white/15 focus:border-rosso focus:outline-none text-sm text-white rounded-none"
+              ></textarea>
+            </div>
+
+            <p id="contact-feedback" class="hidden text-xs font-bold uppercase tracking-wider"></p>
+
+            <button
+              type="submit"
+              class="px-8 py-4 bg-rosso hover:bg-rossoHover text-white text-xs font-bold uppercase tracking-editorial transition-colors rounded-none cursor-pointer"
+            >
+              Send Private Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       FOOTER
+  ====================================================================== -->
+  <footer class="bg-canvas border-t border-white/10 py-14 text-xs text-neutral-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <span id="cms-footer-brand" class="font-extrabold uppercase tracking-editorial text-white block mb-1">
+          Ezz ElArab ATELIER SHOWROOM
+        </span>
+        <span id="cms-footer-copy" class="text-[11px] text-neutral-500">
+          Via Abetone Inferiore 4, Ezz ElArab (MO), Italy &bull; Private Client Concierge
+        </span>
+      </div>
+      <div class="flex flex-wrap gap-6 uppercase tracking-editorial text-[11px]">
+        <a href="#home" class="hover:text-white transition-colors">Home</a>
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#services" class="hover:text-white transition-colors">Our Services</a>
+        <a href="#clients" class="hover:text-white transition-colors">Our Clients</a>
+        <a href="#contact" class="hover:text-rosso transition-colors">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       FLOATING ADMIN CMS QUICK-LAUNCH BADGE & LIVE TOAST
+  ====================================================================== -->
+  <button
+    id="floating-admin-btn"
+    type="button"
+    title="Open Site Admin Control Panel (Ctrl+Shift+A)"
+    class="fixed bottom-5 right-5 z-40 px-4 py-3 bg-canvas/95 hover:bg-rosso border border-white/25 hover:border-rosso text-white text-[11px] font-bold uppercase tracking-editorial shadow-2xl flex items-center gap-2.5 transition-all duration-300 rounded-none cursor-pointer"
+  >
+    <svg class="w-4 h-4 text-rosso group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="square" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+    </svg>
+    <span>ADMIN CMS</span>
+  </button>
+
+  <div
+    id="cms-toast"
+    class="fixed bottom-20 right-5 z-50 hidden px-5 py-3.5 bg-canvas border-l-4 border-rosso border border-white/20 text-xs font-bold uppercase tracking-editorial text-white shadow-2xl"
+  >
+    Changes Saved to LocalStorage
+  </div>
+
+  <!-- =====================================================================
+       FULL-FEATURED REAL-TIME ADMIN PANEL CMS DRAWER
+  ====================================================================== -->
+  <aside
+    id="admin-cms-drawer"
+    class="fixed inset-0 z-50 hidden justify-end bg-black/75 backdrop-blur-xs"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="admin-drawer-title"
+  >
+    <div class="w-full max-w-3xl bg-canvas border-l border-white/20 h-full flex flex-col shadow-2xl overflow-hidden">
+      <!-- Drawer Header -->
+      <div class="px-6 py-4 bg-card border-b border-white/15 flex items-center justify-between shrink-0">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-ultra text-rosso block">
+            Ezz ElArab ATELIER &bull; LIVE CONTROL CENTER
+          </span>
+          <h2 id="admin-drawer-title" class="text-lg sm:text-xl font-black uppercase tracking-tight text-white">
+            WEBSITE ADMIN PANEL (CMS)
+          </h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="hidden sm:inline-block text-[10px] uppercase tracking-wider text-emerald-400 border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1">
+            Auto-Sync Active
+          </span>
+          <button
+            id="close-admin-drawer-btn"
+            type="button"
+            class="p-2 text-neutral-300 hover:text-white border border-white/20 hover:border-rosso transition-colors rounded-none cursor-pointer"
+            aria-label="Close Admin Panel"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="square" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Admin Tab Navigation -->
+      <div id="admin-tabs-bar" class="flex overflow-x-auto bg-elevated border-b border-white/15 shrink-0">
+        <button
+          type="button"
+          data-admin-tab="theme"
+          class="admin-tab-btn px-5 py-3.5 text-[11px] font-bold uppercase tracking-editorial bg-rosso text-white border-r border-white/10 whitespace-nowrap cursor-pointer"
+        >
+          1. Theme &amp; Colors
+        </button>
+        <button
+          type="button"
+          data-admin-tab="text"
+          class="admin-tab-btn px-5 py-3.5 text-[11px] font-bold uppercase tracking-editorial text-neutral-300 hover:text-white border-r border-white/10 whitespace-nowrap cursor-pointer"
+        >
+          2. Hero &amp; Sections Text
+        </button>
+        <button
+          type="button"
+          data-admin-tab="media"
+          class="admin-tab-btn px-5 py-3.5 text-[11px] font-bold uppercase tracking-editorial text-neutral-300 hover:text-white border-r border-white/10 whitespace-nowrap cursor-pointer"
+        >
+          3. Images &amp; Media
+        </button>
+        <button
+          type="button"
+          data-admin-tab="collections"
+          class="admin-tab-btn px-5 py-3.5 text-[11px] font-bold uppercase tracking-editorial text-neutral-300 hover:text-white whitespace-nowrap cursor-pointer"
+        >
+          4. Models, Services &amp; Clients
+        </button>
+      </div>
+
+      <!-- Scrollable Tab Body -->
+      <div class="flex-1 overflow-y-auto p-6 space-y-8">
+        <!-- ===============================================================
+             TAB 1: THEME & COLORS
+        ================================================================ -->
+        <div id="admin-panel-theme" class="admin-tab-panel space-y-8">
+          <div>
+            <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso mb-4">
+              LUXURY HERITAGE PRESETS
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button
+                type="button"
+                data-preset="rosso"
+                class="preset-btn p-4 bg-card border border-white/15 hover:border-rosso text-left flex items-center justify-between transition-colors cursor-pointer"
+              >
+                <div>
+                  <span class="text-xs font-extrabold uppercase text-white block">Rosso Corsa Classic</span>
+                  <span class="text-[10px] text-neutral-400">Chiaroscuro #181818 &bull; Rosso #DA291C</span>
+                </div>
+                <span class="w-6 h-6 bg-[#da291c] border border-white/30"></span>
+              </button>
+
+              <button
+                type="button"
+                data-preset="giallo"
+                class="preset-btn p-4 bg-card border border-white/15 hover:border-[#ffd100] text-left flex items-center justify-between transition-colors cursor-pointer"
+              >
+                <div>
+                  <span class="text-xs font-extrabold uppercase text-white block">Giallo Modena Gold</span>
+                  <span class="text-[10px] text-neutral-400">Obsidian #121212 &bull; Modena #E5B800</span>
+                </div>
+                <span class="w-6 h-6 bg-[#e5b800] border border-white/30"></span>
+              </button>
+
+              <button
+                type="button"
+                data-preset="pozzi"
+                class="preset-btn p-4 bg-card border border-white/15 hover:border-sky-400 text-left flex items-center justify-between transition-colors cursor-pointer"
+              >
+                <div>
+                  <span class="text-xs font-extrabold uppercase text-white block">Blu Pozzi Heritage</span>
+                  <span class="text-[10px] text-neutral-400">Midnight #0E131B &bull; Azzurro #2563EB</span>
+                </div>
+                <span class="w-6 h-6 bg-[#2563eb] border border-white/30"></span>
+              </button>
+
+              <button
+                type="button"
+                data-preset="verde"
+                class="preset-btn p-4 bg-card border border-white/15 hover:border-emerald-400 text-left flex items-center justify-between transition-colors cursor-pointer"
+              >
+                <div>
+                  <span class="text-xs font-extrabold uppercase text-white block">Verde British Racing</span>
+                  <span class="text-[10px] text-neutral-400">Forest #0F1714 &bull; Emerald #10B981</span>
+                </div>
+                <span class="w-6 h-6 bg-[#10b981] border border-white/30"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="border-t border-white/10 pt-6">
+            <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso mb-4">
+              CUSTOM COLOR TOKENS (LIVE CSS VARIABLES)
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Primary Accent -->
+              <div class="bg-card border border-white/10 p-4">
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-white mb-2">
+                  Primary Brand Accent
+                </label>
+                <div class="flex items-center gap-2">
+                  <input type="color" data-color-key="accent" id="picker-accent" class="w-10 h-10 bg-transparent border border-white/20 cursor-pointer" />
+                  <input type="text" data-color-hex="accent" id="hex-accent" class="flex-1 px-3 py-2 bg-canvas border border-white/15 text-xs font-mono uppercase text-white" />
+                </div>
+              </div>
+
+              <!-- Canvas Background -->
+              <div class="bg-card border border-white/10 p-4">
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-white mb-2">
+                  Canvas Background
+                </label>
+                <div class="flex items-center gap-2">
+                  <input type="color" data-color-key="canvas" id="picker-canvas" class="w-10 h-10 bg-transparent border border-white/20 cursor-pointer" />
+                  <input type="text" data-color-hex="canvas" id="hex-canvas" class="flex-1 px-3 py-2 bg-canvas border border-white/15 text-xs font-mono uppercase text-white" />
+                </div>
+              </div>
+
+              <!-- Card Surface -->
+              <div class="bg-card border border-white/10 p-4">
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-white mb-2">
+                  Card / Section Surface
+                </label>
+                <div class="flex items-center gap-2">
+                  <input type="color" data-color-key="card" id="picker-card" class="w-10 h-10 bg-transparent border border-white/20 cursor-pointer" />
+                  <input type="text" data-color-hex="card" id="hex-card" class="flex-1 px-3 py-2 bg-canvas border border-white/15 text-xs font-mono uppercase text-white" />
+                </div>
+              </div>
+
+              <!-- Elevated Surface -->
+              <div class="bg-card border border-white/10 p-4">
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-white mb-2">
+                  Elevated / Hover Surface
+                </label>
+                <div class="flex items-center gap-2">
+                  <input type="color" data-color-key="elevated" id="picker-elevated" class="w-10 h-10 bg-transparent border border-white/20 cursor-pointer" />
+                  <input type="text" data-color-hex="elevated" id="hex-elevated" class="flex-1 px-3 py-2 bg-canvas border border-white/15 text-xs font-mono uppercase text-white" />
+                </div>
+              </div>
+
+              <!-- Primary Text -->
+              <div class="bg-card border border-white/10 p-4">
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-white mb-2">
+                  Primary Text Color
+                </label>
+                <div class="flex items-center gap-2">
+                  <input type="color" data-color-key="textPrimary" id="picker-textPrimary" class="w-10 h-10 bg-transparent border border-white/20 cursor-pointer" />
+                  <input type="text" data-color-hex="textPrimary" id="hex-textPrimary" class="flex-1 px-3 py-2 bg-canvas border border-white/15 text-xs font-mono uppercase text-white" />
+                </div>
+              </div>
+
+              <!-- Secondary Text -->
+              <div class="bg-card border border-white/10 p-4">
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-white mb-2">
+                  Secondary / Muted Text
+                </label>
+                <div class="flex items-center gap-2">
+                  <input type="color" data-color-key="textSecondary" id="picker-textSecondary" class="w-10 h-10 bg-transparent border border-white/20 cursor-pointer" />
+                  <input type="text" data-color-hex="textSecondary" id="hex-textSecondary" class="flex-1 px-3 py-2 bg-canvas border border-white/15 text-xs font-mono uppercase text-white" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===============================================================
+             TAB 2: HERO & SECTIONS TEXT
+        ================================================================ -->
+        <div id="admin-panel-text" class="admin-tab-panel hidden space-y-6">
+          <!-- Brand & Navbar -->
+          <div class="bg-card border border-white/10 p-5 space-y-4">
+            <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso">
+              BRAND &amp; NAVIGATION LABELS
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Brand Title</label>
+                <input type="text" data-text-key="brandTitle" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Brand Subtitle</label>
+                <input type="text" data-text-key="brandSubtitle" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Nav Link 1</label>
+                <input type="text" data-text-key="navHome" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Nav Link 2</label>
+                <input type="text" data-text-key="navAbout" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Nav Link 3</label>
+                <input type="text" data-text-key="navServices" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Nav Link 4</label>
+                <input type="text" data-text-key="navClients" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Nav Link 5</label>
+                <input type="text" data-text-key="navContact" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Header CTA Button</label>
+                <input type="text" data-text-key="headerCta" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Typography -->
+          <div class="bg-card border border-white/10 p-5 space-y-4">
+            <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso">
+              HERO SECTION COPY
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="sm:col-span-2">
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Hero Eyebrow Tag</label>
+                <input type="text" data-text-key="heroEyebrow" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Headline Line 1</label>
+                <input type="text" data-text-key="heroTitleLine1" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Headline Line 2</label>
+                <input type="text" data-text-key="heroTitleLine2" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Hero Subheadline</label>
+                <textarea rows="2" data-text-key="heroSubheadline" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white"></textarea>
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Primary CTA Button</label>
+                <input type="text" data-text-key="heroCtaPrimary" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Secondary CTA Button</label>
+                <input type="text" data-text-key="heroCtaSecondary" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Telemetry 4 Metrics -->
+          <div class="bg-card border border-white/10 p-5 space-y-4">
+            <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso">
+              TELEMETRY BAR METRICS
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-3 bg-canvas border border-white/10 space-y-2">
+                <span class="text-[10px] font-bold text-rosso uppercase">Metric 1</span>
+                <input type="text" data-text-key="metric1Label" placeholder="Label" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" data-text-key="metric1Value" placeholder="Value" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                  <input type="text" data-text-key="metric1Unit" placeholder="Unit" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                </div>
+                <input type="text" data-text-key="metric1Sub" placeholder="Subtitle" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+              </div>
+
+              <div class="p-3 bg-canvas border border-white/10 space-y-2">
+                <span class="text-[10px] font-bold text-rosso uppercase">Metric 2</span>
+                <input type="text" data-text-key="metric2Label" placeholder="Label" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" data-text-key="metric2Value" placeholder="Value" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                  <input type="text" data-text-key="metric2Unit" placeholder="Unit" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                </div>
+                <input type="text" data-text-key="metric2Sub" placeholder="Subtitle" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+              </div>
+
+              <div class="p-3 bg-canvas border border-white/10 space-y-2">
+                <span class="text-[10px] font-bold text-rosso uppercase">Metric 3</span>
+                <input type="text" data-text-key="metric3Label" placeholder="Label" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" data-text-key="metric3Value" placeholder="Value" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                  <input type="text" data-text-key="metric3Unit" placeholder="Unit" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                </div>
+                <input type="text" data-text-key="metric3Sub" placeholder="Subtitle" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+              </div>
+
+              <div class="p-3 bg-canvas border border-white/10 space-y-2">
+                <span class="text-[10px] font-bold text-rosso uppercase">Metric 4</span>
+                <input type="text" data-text-key="metric4Label" placeholder="Label" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" data-text-key="metric4Value" placeholder="Value" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                  <input type="text" data-text-key="metric4Unit" placeholder="Unit" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                </div>
+                <input type="text" data-text-key="metric4Sub" placeholder="Subtitle" class="cms-text-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+              </div>
+            </div>
+          </div>
+
+          <!-- About, Services, Clients, Contact & Footer -->
+          <div class="bg-card border border-white/10 p-5 space-y-4">
+            <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso">
+              ABOUT, SERVICES, CLIENTS &amp; CONTACT COPY
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">About Eyebrow</label>
+                <input type="text" data-text-key="aboutEyebrow" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">About Image Badge</label>
+                <input type="text" data-text-key="aboutBadge" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">About Headline</label>
+                <input type="text" data-text-key="aboutTitle" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">About Paragraph</label>
+                <textarea rows="3" data-text-key="aboutBody" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white"></textarea>
+              </div>
+
+              <!-- About 3 Stats -->
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">About Stat 1 Value / Label</label>
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" data-text-key="aboutStat1Val" class="cms-text-input w-full px-2.5 py-1.5 bg-canvas border border-white/15 text-xs text-white" />
+                  <input type="text" data-text-key="aboutStat1Lbl" class="cms-text-input w-full px-2.5 py-1.5 bg-canvas border border-white/15 text-xs text-white" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">About Stat 2 Value / Label</label>
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" data-text-key="aboutStat2Val" class="cms-text-input w-full px-2.5 py-1.5 bg-canvas border border-white/15 text-xs text-white" />
+                  <input type="text" data-text-key="aboutStat2Lbl" class="cms-text-input w-full px-2.5 py-1.5 bg-canvas border border-white/15 text-xs text-white" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Services Section Title</label>
+                <input type="text" data-text-key="servicesTitle" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Clients Section Title</label>
+                <input type="text" data-text-key="clientsTitle" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Contact Address</label>
+                <input type="text" data-text-key="contactAddress" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Contact Phone &amp; Email</label>
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" data-text-key="contactPhone" class="cms-text-input w-full px-2.5 py-2 bg-canvas border border-white/15 text-xs text-white" />
+                  <input type="text" data-text-key="contactEmail" class="cms-text-input w-full px-2.5 py-2 bg-canvas border border-white/15 text-xs text-white" />
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label class="block text-[10px] uppercase tracking-wider text-neutral-400 mb-1">Footer Copyright / Tagline</label>
+                <input type="text" data-text-key="footerCopy" class="cms-text-input w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===============================================================
+             TAB 3: IMAGES & MEDIA MANAGER
+        ================================================================ -->
+        <div id="admin-panel-media" class="admin-tab-panel hidden space-y-6">
+          <!-- Hero Image -->
+          <div class="bg-card border border-white/10 p-5 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso">HERO BACKGROUND IMAGE</h3>
+              <button type="button" data-reset-image="heroImage" class="text-[10px] uppercase tracking-wider text-neutral-400 hover:text-white underline cursor-pointer">
+                Reset Default
+              </button>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 items-center">
+              <img id="thumb-heroImage" src="" alt="Hero Preview" class="w-36 h-20 object-cover border border-white/20 shrink-0" />
+              <div class="flex-1 w-full space-y-2">
+                <input type="url" id="input-img-heroImage" placeholder="https://..." class="w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+                <label class="inline-block px-3 py-1.5 bg-elevated hover:bg-rosso text-[10px] font-bold uppercase tracking-wider text-white cursor-pointer">
+                  Upload Local Image
+                  <input type="file" accept="image/*" data-upload-image="heroImage" class="hidden" />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- About Image -->
+          <div class="bg-card border border-white/10 p-5 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso">ABOUT HERITAGE IMAGE</h3>
+              <button type="button" data-reset-image="aboutImage" class="text-[10px] uppercase tracking-wider text-neutral-400 hover:text-white underline cursor-pointer">
+                Reset Default
+              </button>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 items-center">
+              <img id="thumb-aboutImage" src="" alt="About Preview" class="w-36 h-20 object-cover border border-white/20 shrink-0" />
+              <div class="flex-1 w-full space-y-2">
+                <input type="url" id="input-img-aboutImage" placeholder="https://..." class="w-full px-3 py-2 bg-canvas border border-white/15 text-xs text-white" />
+                <label class="inline-block px-3 py-1.5 bg-elevated hover:bg-rosso text-[10px] font-bold uppercase tracking-wider text-white cursor-pointer">
+                  Upload Local Image
+                  <input type="file" accept="image/*" data-upload-image="aboutImage" class="hidden" />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Fleet Model Images -->
+          <div class="bg-card border border-white/10 p-5 space-y-4">
+            <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso">
+              FLEET SHOWCASE MODEL IMAGES
+            </h3>
+            <div id="admin-models-media-list" class="space-y-4">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ===============================================================
+             TAB 4: MODELS, SERVICES & CLIENTS CRUD MANAGER
+        ================================================================ -->
+        <div id="admin-panel-collections" class="admin-tab-panel hidden space-y-8">
+          <!-- Fleet Models CRUD -->
+          <div class="bg-card border border-white/10 p-5 space-y-4">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+              <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso">
+                MANAGE CAR MODELS
+              </h3>
+              <button
+                id="admin-add-model-btn"
+                type="button"
+                class="px-3 py-1.5 bg-rosso hover:bg-rossoHover text-[10px] font-bold uppercase tracking-wider text-white cursor-pointer"
+              >
+                + Add Vehicle
+              </button>
+            </div>
+            <div id="admin-models-crud-list" class="space-y-4">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Services CRUD -->
+          <div class="bg-card border border-white/10 p-5 space-y-4">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+              <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso">
+                MANAGE OUR SERVICES
+              </h3>
+              <button
+                id="admin-add-service-btn"
+                type="button"
+                class="px-3 py-1.5 bg-rosso hover:bg-rossoHover text-[10px] font-bold uppercase tracking-wider text-white cursor-pointer"
+              >
+                + Add Service
+              </button>
+            </div>
+            <div id="admin-services-crud-list" class="space-y-4">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Clients CRUD -->
+          <div class="bg-card border border-white/10 p-5 space-y-4">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+              <h3 class="text-xs font-bold uppercase tracking-editorial text-rosso">
+                MANAGE OUR CLIENTS / TESTIMONIALS
+              </h3>
+              <button
+                id="admin-add-client-btn"
+                type="button"
+                class="px-3 py-1.5 bg-rosso hover:bg-rossoHover text-[10px] font-bold uppercase tracking-wider text-white cursor-pointer"
+              >
+                + Add Client
+              </button>
+            </div>
+            <div id="admin-clients-crud-list" class="space-y-4">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drawer Footer: Persistence, JSON Export/Import & Reset -->
+      <div class="px-6 py-4 bg-card border-t border-white/15 flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <div class="flex flex-wrap items-center gap-2">
+          <button
+            id="cms-save-btn"
+            type="button"
+            class="px-4 py-2.5 bg-rosso hover:bg-rossoHover text-[11px] font-bold uppercase tracking-editorial text-white cursor-pointer"
+          >
+            Save Changes
+          </button>
+          <button
+            id="cms-export-btn"
+            type="button"
+            class="px-3.5 py-2.5 bg-elevated hover:bg-white/15 border border-white/15 text-[11px] font-bold uppercase tracking-wider text-white cursor-pointer"
+          >
+            Export JSON
+          </button>
+          <label class="px-3.5 py-2.5 bg-elevated hover:bg-white/15 border border-white/15 text-[11px] font-bold uppercase tracking-wider text-white cursor-pointer">
+            Import JSON
+            <input id="cms-import-input" type="file" accept="application/json" class="hidden" />
+          </label>
+        </div>
+
+        <button
+          id="cms-reset-all-btn"
+          type="button"
+          class="px-3.5 py-2.5 border border-rosso/60 text-rosso hover:bg-rosso hover:text-white text-[11px] font-bold uppercase tracking-wider transition-colors cursor-pointer"
+        >
+          Reset All Default
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =====================================================================
+       MODEL QUICK-VIEW SPECIFICATION MODAL (0px SHARP CORNERS)
+  ====================================================================== -->
+  <div
+    id="spec-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="spec-modal-title"
+  >
+    <div class="bg-card border border-white/20 max-w-2xl w-full overflow-hidden rounded-none shadow-2xl">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-6 py-4 bg-canvas border-b border-white/10">
+        <div>
+          <span id="spec-modal-category" class="text-[10px] font-bold uppercase tracking-ultra text-rosso block">
+            SPECIAL SERIES
+          </span>
+          <h3 id="spec-modal-title" class="text-xl sm:text-2xl font-black uppercase tracking-tight text-white">
+            MODEL NAME
+          </h3>
+        </div>
+        <button
+          id="close-spec-modal"
+          type="button"
+          class="p-2 text-neutral-400 hover:text-white border border-white/15 hover:border-rosso transition-colors rounded-none cursor-pointer"
+          aria-label="Close Specification Modal"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="square" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Image -->
+      <div class="relative h-56 sm:h-64 bg-canvas">
+        <img
+          id="spec-modal-img"
+          src=""
+          alt="Vehicle Quick View"
+          class="w-full h-full object-cover filter contrast-115"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
+      </div>
+
+      <!-- Modal Technical Specs Grid -->
+      <div class="p-6 sm:p-8">
+        <p id="spec-modal-desc" class="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-6">
+          Description
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 border-y border-white/10 py-5 mb-6">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-400 block">ENGINE</span>
+            <span id="spec-modal-engine" class="text-sm font-extrabold text-white mt-0.5 block">V12</span>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-400 block">MAX POWER</span>
+            <span id="spec-modal-power" class="text-sm font-extrabold text-rosso mt-0.5 block">1,000 cv</span>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-400 block">0–100 KM/H</span>
+            <span id="spec-modal-accel" class="text-sm font-extrabold text-white mt-0.5 block">2.5 s</span>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase tracking-wider text-neutral-400 block">TOP SPEED</span>
+            <span id="spec-modal-speed" class="text-sm font-extrabold text-white mt-0.5 block">340 km/h</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button
+            id="spec-modal-book-btn"
+            type="button"
+            class="flex-1 py-3.5 bg-rosso hover:bg-rossoHover text-white text-xs font-bold uppercase tracking-editorial transition-colors rounded-none cursor-pointer"
+          >
+            Request Private Track Test
+          </button>
+          <a
+            href="#configurator"
+            id="spec-modal-config-link"
+            class="py-3.5 px-6 border border-white/25 hover:border-white text-white text-xs font-bold uppercase tracking-editorial text-center transition-colors rounded-none"
+          >
+            Configure Livery
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       6. TEST DRIVE / PRIVATE INQUIRY MODAL & FORM
+  ====================================================================== -->
+  <div
+    id="booking-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="booking-modal-title"
+  >
+    <div class="bg-card border border-white/20 max-w-lg w-full rounded-none shadow-2xl overflow-hidden">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-4 bg-canvas border-b border-white/10">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-ultra text-rosso block">
+            CLIENT CONCIERGE
+          </span>
+          <h3 id="booking-modal-title" class="text-lg sm:text-xl font-black uppercase tracking-tight text-white">
+            BOOK A PRIVATE TEST DRIVE
+          </h3>
+        </div>
+        <button
+          id="close-booking-modal"
+          type="button"
+          class="p-2 text-neutral-400 hover:text-white border border-white/15 hover:border-rosso transition-colors rounded-none cursor-pointer"
+          aria-label="Close Booking Modal"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="square" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Form State -->
+      <form id="booking-form" class="p-6 sm:p-8 space-y-4" novalidate>
+        <div>
+          <label for="client-name" class="block text-[11px] font-bold uppercase tracking-editorial text-neutral-300 mb-1.5">
+            Full Name *
+          </label>
+          <input
+            id="client-name"
+            name="clientName"
+            type="text"
+            required
+            placeholder="e.g. Alessandro Conti"
+            class="w-full px-4 py-3 bg-canvas border border-white/15 focus:border-rosso focus:outline-none text-sm text-white rounded-none"
+          />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="client-email" class="block text-[11px] font-bold uppercase tracking-editorial text-neutral-300 mb-1.5">
+              Email Address *
+            </label>
+            <input
+              id="client-email"
+              name="clientEmail"
+              type="email"
+              required
+              placeholder="name@domain.com"
+              class="w-full px-4 py-3 bg-canvas border border-white/15 focus:border-rosso focus:outline-none text-sm text-white rounded-none"
+            />
+          </div>
+          <div>
+            <label for="client-phone" class="block text-[11px] font-bold uppercase tracking-editorial text-neutral-300 mb-1.5">
+              Telephone *
+            </label>
+            <input
+              id="client-phone"
+              name="clientPhone"
+              type="tel"
+              required
+              placeholder="+39 0536 949111"
+              class="w-full px-4 py-3 bg-canvas border border-white/15 focus:border-rosso focus:outline-none text-sm text-white rounded-none"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="client-model" class="block text-[11px] font-bold uppercase tracking-editorial text-neutral-300 mb-1.5">
+            Preferred Model / Specification
+          </label>
+          <input
+            id="client-model"
+            name="clientModel"
+            type="text"
+            value="SF90 XX Stradale"
+            class="w-full px-4 py-3 bg-canvas border border-white/15 focus:border-rosso focus:outline-none text-sm text-white rounded-none"
+          />
+        </div>
+
+        <div>
+          <label for="client-showroom" class="block text-[11px] font-bold uppercase tracking-editorial text-neutral-300 mb-1.5">
+            Preferred Atelier / Circuit
+          </label>
+          <select
+            id="client-showroom"
+            name="clientShowroom"
+            class="w-full px-4 py-3 bg-canvas border border-white/15 focus:border-rosso focus:outline-none text-sm text-white rounded-none"
+          >
+            <option value="Ezz ElArab — Pista di Fiorano">Ezz ElArab — Pista di Fiorano</option>
+            <option value="Milano — Via Montenapoleone">Milano — Via Montenapoleone</option>
+            <option value="Cairo — New Cairo Atelier">Cairo — New Cairo Atelier</option>
+            <option value="Dubai — DIFC Private Lounge">Dubai — DIFC Private Lounge</option>
+            <option value="London — Mayfair Showroom">London — Mayfair Showroom</option>
+          </select>
+        </div>
+
+        <!-- Inline Validation Message -->
+        <p id="booking-error" class="hidden text-xs text-rosso font-semibold uppercase tracking-wider">
+          Please complete all required fields with a valid email address.
+        </p>
+
+        <button
+          type="submit"
+          class="w-full py-4 bg-rosso hover:bg-rossoHover text-white text-xs font-bold uppercase tracking-editorial transition-colors rounded-none cursor-pointer mt-2"
+        >
+          Confirm Private Appointment
+        </button>
+      </form>
+
+      <!-- Instant Confirmation State -->
+      <div id="booking-confirmation" class="hidden p-8 text-center space-y-5">
+        <div class="w-12 h-12 mx-auto bg-rosso/15 border border-rosso flex items-center justify-center text-rosso">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="square" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <span class="text-[10px] font-bold uppercase tracking-ultra text-rosso block">
+          DOSSIER REGISTERED
+        </span>
+        <h4 class="text-2xl font-black uppercase text-white">
+          PRIVATE INVITATION CONFIRMED
+        </h4>
+        <p id="booking-confirmation-detail" class="text-xs sm:text-sm text-neutral-300 leading-relaxed max-w-sm mx-auto">
+          Our Ezz ElArab Client Concierge will contact you shortly to finalize your private circuit allocation.
+        </p>
+        <button
+          id="reset-booking-btn"
+          type="button"
+          class="px-8 py-3 border border-white/25 hover:border-white text-xs font-bold uppercase tracking-editorial text-white transition-colors rounded-none cursor-pointer"
+        >
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODULAR JAVASCRIPT (CLEAN LOCAL SCOPE, ZERO GLOBAL POLLUTION)
+  ====================================================================== -->
+  <script>
+    (function initShowroomApp() {
+      const STORAGE_KEY = 'Ezz ElArab_atelier_cms_v1';
+      let activeFilterCategory = 'All';
+
+      /**
+       * Default complete CMS configuration state.
+       */
+      function getDefaultCmsState() {
+        return {
+          theme: {
+            accent: '#da291c',
+            accentHover: '#b81d12',
+            canvas: '#181818',
+            card: '#242424',
+            elevated: '#303030',
+            textPrimary: '#ffffff',
+            textSecondary: '#a3a3a3',
+          },
+          texts: {
+            brandTitle: 'Ezz ElArab',
+            brandSubtitle: 'ATELIER • MODENA',
+            navHome: 'Home',
+            navAbout: 'About',
+            navServices: 'Our Services',
+            navClients: 'Our Clients',
+            navContact: 'Contact Us',
+            headerCta: 'Book a Test Drive',
+            heroEyebrow: 'SCUDERIA GT • SPECIAL SERIES',
+            heroTitleLine1: 'THE ART OF',
+            heroTitleLine2: 'PERFORMANCE',
+            heroSubheadline:
+              'Forged in wind-tunnel precision and Ezz ElArab racing DNA. Experience unadulterated V12 emotion paired with Formula 1 hybrid aerodynamics.',
+            heroCtaPrimary: 'Explore The Range',
+            heroCtaSecondary: 'Atelier Configurator',
+            metric1Label: 'TOP SPEED',
+            metric1Value: '340',
+            metric1Unit: 'km/h',
+            metric1Sub: 'Active Aero Low-Drag Mode',
+            metric2Label: '0–100 KM/H SPRINT',
+            metric2Value: '2.5',
+            metric2Unit: 'sec',
+            metric2Sub: 'F1-Trac Launch Control',
+            metric3Label: 'HYBRID OUTPUT',
+            metric3Value: '1,000',
+            metric3Unit: 'cv',
+            metric3Sub: 'Triple Electric Motor Torque Vectoring',
+            metric4Label: 'POWERTRAIN ARCHITECTURE',
+            metric4Value: 'V12 / V8',
+            metric4Unit: 'TWIN-TURBO',
+            metric4Sub: '9,500 RPM Redline Symphony',
+            modelsEyebrow: 'CURRENT LINEUP',
+            modelsTitle: 'THE Ezz ElArab FLEET',
+            aboutEyebrow: 'SINCE 1947 • TRACK TO ROAD',
+            aboutBadge: 'ABOUT Ezz ElArab ATELIER',
+            aboutTitle: 'ARCHITECTS OF SPEED & ITALIAN CRAFTSMANSHIP',
+            aboutBody:
+              'Born on the circuits of Modena and perfected at Pista di Fiorano, Ezz ElArab Atelier unites Formula 1 aerodynamic engineering with bespoke hand-stitched luxury. Every chassis, active S-Duct, and V12 powertrain is sculpted to deliver pure driver emotion.',
+            aboutStat1Val: '1947',
+            aboutStat1Lbl: 'Founding Legacy',
+            aboutStat2Val: '390 KG',
+            aboutStat2Lbl: 'Active Downforce',
+            aboutStat3Val: '100%',
+            aboutStat3Lbl: 'Handcrafted in Italy',
+            servicesEyebrow: 'BESPOKE OWNERSHIP & TRACK PROGRAMS',
+            servicesTitle: 'OUR SERVICES',
+            servicesSubtitle:
+              'Comprehensive white-glove commissioning, factory-certified restoration, and private telemetry track support.',
+            clientsEyebrow: 'GLOBAL COLLECTORS & RACING PATRONS',
+            clientsTitle: 'OUR CLIENTS',
+            clientsSubtitle:
+              'Trusted by private collectors, GT endurance teams, and bespoke automotive connoisseurs worldwide.',
+            contactEyebrow: 'PRIVATE CLIENT DESK',
+            contactTitle: 'CONTACT US',
+            contactSubtitle:
+              'Connect directly with our Senior Ezz ElArab Specialists for vehicle allocations, Tailor Made appointments, or private track sessions.',
+            contactAddress: 'Via Abetone Inferiore 4, 41053 Ezz ElArab (MO), Italy',
+            contactPhone: '+39 0536 949111',
+            contactEmail: 'concierge@Ezz ElArab-atelier.it',
+            contactFlagship: 'New Cairo Luxury Boulevard • DIFC Gate Village',
+            contactHours: 'Private Appointments • Mon – Sat, 10:00 – 21:00',
+            footerBrand: 'Ezz ElArab ATELIER SHOWROOM',
+            footerCopy: 'Via Abetone Inferiore 4, Ezz ElArab (MO), Italy • Private Client Concierge',
+          },
+          media: {
+            heroImage:
+              'https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=2200&q=85',
+            aboutImage:
+              'https://images.unsplash.com/photo-1541443131876-44b03de101c5?auto=format&fit=crop&w=1400&q=80',
+          },
+          fleet: [
+            {
+              id: 'sf90-xx',
+              name: 'SF90 XX Stradale',
+              category: 'Special Series',
+              engine: '4.0L V8 Twin-Turbo + 3 Electric Motors',
+              power: '1,030 cv',
+              accel: '2.3 sec',
+              speed: '320 km/h',
+              image:
+                'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80',
+              description:
+                'The first road-legal XX creation in Ezz ElArab history, delivering 530 kg of downforce at 250 km/h through fixed carbon-fiber rear wing geometry.',
+            },
+            {
+              id: '296-gtb',
+              name: '296 GTB Assetto Fiorano',
+              category: 'Range',
+              engine: '3.0L 120° V6 Twin-Turbo Hybrid',
+              power: '830 cv',
+              accel: '2.9 sec',
+              speed: '330 km/h',
+              image:
+                'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=80',
+              description:
+                'Compact wheelbase agility meets a screaming 8,500 rpm V6 hybrid powertrain affectionately dubbed the Piccolo V12.',
+            },
+            {
+              id: 'daytona-sp3',
+              name: 'Daytona SP3',
+              category: 'Icona',
+              engine: '6.5L Naturally Aspirated V12',
+              power: '840 cv',
+              accel: '2.85 sec',
+              speed: '340 km/h',
+              image:
+                'https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1200&q=80',
+              description:
+                'Inspired by the legendary 1967 24 Hours of Daytona 1-2-3 finish, pairing targa-top mid-engine sculpture with the most powerful naturally aspirated V12 ever built in Ezz ElArab.',
+            },
+            {
+              id: '12cilindri',
+              name: '12Cilindri Berlinetta',
+              category: 'Range',
+              engine: '6.5L Naturally Aspirated V12',
+              power: '830 cv',
+              accel: '2.9 sec',
+              speed: '340 km/h',
+              image:
+                'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
+              description:
+                'A pure front-mid-engine V12 gran turismo revving to 9,500 rpm with active rear aerodynamic flaps and four-wheel independent steering.',
+            },
+            {
+              id: '812-competizione',
+              name: '812 Competizione',
+              category: 'Special Series',
+              engine: '6.5L V12 Dry-Sump',
+              power: '830 cv',
+              accel: '2.85 sec',
+              speed: '340 km/h',
+              image:
+                'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=80',
+              description:
+                'Titanium connecting rods, diamond-like carbon sliding finger followers, and a vortex-generating aluminum rear screen.',
+            },
+            {
+              id: 'monza-sp2',
+              name: 'Monza SP2 Barchetta',
+              category: 'Icona',
+              engine: '6.5L Naturally Aspirated V12',
+              power: '810 cv',
+              accel: '2.9 sec',
+              speed: '300+ km/h',
+              image:
+                'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80',
+              description:
+                'A roofless, windshield-free tribute to 1950s barchetta racing prototypes featuring the patented Virtual Wind Shield.',
+            },
+          ],
+          services: [
+            {
+              id: 'srv-1',
+              tag: '01 / COMMISSIONING',
+              title: 'TAILOR MADE ATELIER',
+              description:
+                'Work one-on-one with Ezz ElArab designers to specify custom multi-layer liveries, exposed carbon weaves, and heritage aniline leathers.',
+              cta: 'Launch Studio →',
+              actionType: 'link',
+              actionTarget: '#configurator',
+            },
+            {
+              id: 'srv-2',
+              tag: '02 / MOTORSPORT',
+              title: 'CORSE CLIENTI TRACK DAYS',
+              description:
+                'Private circuit coaching at Fiorano, Mugello, and Yas Marina with dedicated race engineers and live telemetry analysis.',
+              cta: 'Reserve Track Slot →',
+              actionType: 'booking',
+              actionTarget: 'Corse Clienti Track Program',
+            },
+            {
+              id: 'srv-3',
+              tag: '03 / PRESERVATION',
+              title: 'OFFICINE CLASSICHE',
+              description:
+                'Factory-certified restoration and Red Book authenticity certification utilizing original Ezz ElArab technical blueprints.',
+              cta: 'Request Dossier →',
+              actionType: 'booking',
+              actionTarget: 'Officine Classiche Certification',
+            },
+            {
+              id: 'srv-4',
+              tag: '04 / CONCIERGE',
+              title: '7-YEAR GENUINE MAINTENANCE',
+              description:
+                'Enclosed climate-controlled transport and factory-trained master technicians maintaining peak hybrid and V12 calibration.',
+              cta: 'Schedule Service →',
+              actionType: 'booking',
+              actionTarget: 'Master Technician Concierge',
+            },
+          ],
+          clients: [
+            {
+              id: 'cli-1',
+              name: 'LORENZO VISCONTI',
+              role: 'MILANO • ICONA COLLECTOR',
+              vehicle: 'SF90 XX',
+              quote:
+                'Specifying my SF90 XX Stradale in Ezz ElArab was an unforgettable experience. The aerodynamic precision at Fiorano feels indistinguishable from a GT3 race car.',
+            },
+            {
+              id: 'cli-2',
+              name: 'TARIQ AL-MANSOOR',
+              role: 'CAIRO & DUBAI • PATRON',
+              vehicle: 'DAYTONA SP3',
+              quote:
+                'The Tailor Made studio matched our historic 1964 racing livery down to the exact metallic flake and hand-woven Cuoio saddle cockpit.',
+            },
+            {
+              id: 'cli-3',
+              name: 'HENRIK LINDQVIST',
+              role: 'MONACO • CORSE CLIENTI',
+              vehicle: '812 COMP.',
+              quote:
+                'From private air-freight logistics to telemetry engineers trackside, Ezz ElArab Atelier sets the global benchmark for hypercar stewardship.',
+            },
+          ],
+        };
+      }
+
+      /**
+       * Loads CMS state from localStorage merged safely with defaults.
+       */
+      function loadCmsState() {
+        const defaults = getDefaultCmsState();
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return defaults;
+          const parsed = JSON.parse(raw);
+          return {
+            theme: { ...defaults.theme, ...(parsed.theme || {}) },
+            texts: { ...defaults.texts, ...(parsed.texts || {}) },
+            media: { ...defaults.media, ...(parsed.media || {}) },
+            fleet: Array.isArray(parsed.fleet) ? parsed.fleet : defaults.fleet,
+            services: Array.isArray(parsed.services) ? parsed.services : defaults.services,
+            clients: Array.isArray(parsed.clients) ? parsed.clients : defaults.clients,
+          };
+        } catch (err) {
+          return defaults;
+        }
+      }
+
+      let cmsState = loadCmsState();
+
+      /**
+       * Persists current cmsState to localStorage.
+       */
+      function saveCmsState(showToastMsg) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(cmsState));
+          if (showToastMsg) triggerToast(showToastMsg);
+        } catch (err) {
+          triggerToast('Storage Quota Full — Use Smaller Images');
+        }
+      }
+
+      /**
+       * Shows brief non-blocking confirmation toast.
+       */
+      function triggerToast(message) {
+        const toastEl = document.getElementById('cms-toast');
+        if (!toastEl) return;
+        toastEl.textContent = message;
+        toastEl.classList.remove('hidden');
+        clearTimeout(toastEl._timer);
+        toastEl._timer = setTimeout(() => {
+          toastEl.classList.add('hidden');
+        }, 2600);
+      }
+
+      /**
+       * Darkens a hex color slightly for hover states.
+       */
+      function computeHoverShade(hex) {
+        const clean = hex.replace('#', '');
+        if (clean.length !== 6) return hex;
+        const num = parseInt(clean, 16);
+        const r = Math.max(0, ((num >> 16) & 255) - 28);
+        const g = Math.max(0, ((num >> 8) & 255) - 28);
+        const b = Math.max(0, (num & 255) - 28);
+        return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+      }
+
+      /**
+       * Applies CSS custom properties for Theme & Colors.
+       */
+      function applyThemeToDom() {
+        const root = document.documentElement;
+        const t = cmsState.theme;
+        root.style.setProperty('--color-accent', t.accent);
+        root.style.setProperty('--color-accent-hover', computeHoverShade(t.accent));
+        root.style.setProperty('--color-canvas', t.canvas);
+        root.style.setProperty('--color-card', t.card);
+        root.style.setProperty('--color-elevated', t.elevated);
+        root.style.setProperty('--color-text-primary', t.textPrimary);
+        root.style.setProperty('--color-text-secondary', t.textSecondary);
+      }
+
+      /**
+       * Applies all text and media fields to DOM elements.
+       */
+      function applyTextsAndMediaToDom() {
+        const tx = cmsState.texts;
+        const textMap = {
+          'cms-brand-title': tx.brandTitle,
+          'cms-brand-subtitle': tx.brandSubtitle,
+          'cms-nav-home': tx.navHome,
+          'cms-nav-about': tx.navAbout,
+          'cms-nav-services': tx.navServices,
+          'cms-nav-clients': tx.navClients,
+          'cms-nav-contact': tx.navContact,
+          'cms-mnav-home': tx.navHome,
+          'cms-mnav-about': tx.navAbout,
+          'cms-mnav-services': tx.navServices,
+          'cms-mnav-clients': tx.navClients,
+          'cms-mnav-contact': tx.navContact,
+          'cms-header-cta': tx.headerCta,
+          'cms-hero-eyebrow': tx.heroEyebrow,
+          'cms-hero-title-line1': tx.heroTitleLine1,
+          'cms-hero-title-line2': tx.heroTitleLine2,
+          'cms-hero-subheadline': tx.heroSubheadline,
+          'cms-hero-cta-primary': tx.heroCtaPrimary,
+          'cms-hero-cta-secondary': tx.heroCtaSecondary,
+          'cms-metric1-label': tx.metric1Label,
+          'cms-metric1-value': tx.metric1Value,
+          'cms-metric1-unit': tx.metric1Unit,
+          'cms-metric1-sub': tx.metric1Sub,
+          'cms-metric2-label': tx.metric2Label,
+          'cms-metric2-value': tx.metric2Value,
+          'cms-metric2-unit': tx.metric2Unit,
+          'cms-metric2-sub': tx.metric2Sub,
+          'cms-metric3-label': tx.metric3Label,
+          'cms-metric3-value': tx.metric3Value,
+          'cms-metric3-unit': tx.metric3Unit,
+          'cms-metric3-sub': tx.metric3Sub,
+          'cms-metric4-label': tx.metric4Label,
+          'cms-metric4-value': tx.metric4Value,
+          'cms-metric4-unit': tx.metric4Unit,
+          'cms-metric4-sub': tx.metric4Sub,
+          'cms-models-eyebrow': tx.modelsEyebrow,
+          'cms-models-title': tx.modelsTitle,
+          'cms-about-eyebrow': tx.aboutEyebrow,
+          'cms-about-badge': tx.aboutBadge,
+          'cms-about-title': tx.aboutTitle,
+          'cms-about-body': tx.aboutBody,
+          'cms-about-stat1-val': tx.aboutStat1Val,
+          'cms-about-stat1-lbl': tx.aboutStat1Lbl,
+          'cms-about-stat2-val': tx.aboutStat2Val,
+          'cms-about-stat2-lbl': tx.aboutStat2Lbl,
+          'cms-about-stat3-val': tx.aboutStat3Val,
+          'cms-about-stat3-lbl': tx.aboutStat3Lbl,
+          'cms-services-eyebrow': tx.servicesEyebrow,
+          'cms-services-title': tx.servicesTitle,
+          'cms-services-subtitle': tx.servicesSubtitle,
+          'cms-clients-eyebrow': tx.clientsEyebrow,
+          'cms-clients-title': tx.clientsTitle,
+          'cms-clients-subtitle': tx.clientsSubtitle,
+          'cms-contact-eyebrow': tx.contactEyebrow,
+          'cms-contact-title': tx.contactTitle,
+          'cms-contact-subtitle': tx.contactSubtitle,
+          'cms-contact-address': tx.contactAddress,
+          'cms-contact-phone': tx.contactPhone,
+          'cms-contact-email': tx.contactEmail,
+          'cms-contact-flagship': tx.contactFlagship,
+          'cms-contact-hours': tx.contactHours,
+          'cms-footer-brand': tx.footerBrand,
+          'cms-footer-copy': tx.footerCopy,
+        };
+
+        Object.entries(textMap).forEach(([id, val]) => {
+          const el = document.getElementById(id);
+          if (el && typeof val === 'string') el.textContent = val;
+        });
+
+        const heroImgEl = document.getElementById('cms-hero-image');
+        if (heroImgEl && cmsState.media.heroImage) heroImgEl.src = cmsState.media.heroImage;
+
+        const aboutImgEl = document.getElementById('cms-about-image');
+        if (aboutImgEl && cmsState.media.aboutImage) aboutImgEl.src = cmsState.media.aboutImage;
+      }
+
+      /**
+       * Renders Services cards dynamically from cmsState.services.
+       */
+      function renderServicesGrid() {
+        const gridEl = document.getElementById('cms-services-grid');
+        if (!gridEl) return;
+
+        gridEl.innerHTML = cmsState.services
+          .map((srv) => {
+            const actionMarkup =
+              srv.actionType === 'link'
+                ? `<a href="${srv.actionTarget || '#configurator'}" class="text-[11px] font-bold uppercase tracking-editorial text-white hover:text-rosso transition-colors">${srv.cta || 'Explore →'}</a>`
+                : `<button type="button" data-open-booking="${srv.actionTarget || srv.title}" class="text-left text-[11px] font-bold uppercase tracking-editorial text-white hover:text-rosso transition-colors cursor-pointer">${srv.cta || 'Reserve →'}</button>`;
+
+            return `
+              <div class="bg-canvas border border-white/10 hover:border-rosso transition-colors p-7 flex flex-col justify-between">
+                <div>
+                  <span class="text-xs font-mono text-rosso font-bold block mb-4">${srv.tag}</span>
+                  <h3 class="text-lg font-extrabold uppercase tracking-wider text-white mb-3">${srv.title}</h3>
+                  <p class="text-xs text-neutral-400 leading-relaxed mb-6">${srv.description}</p>
+                </div>
+                ${actionMarkup}
+              </div>
+            `;
+          })
+          .join('');
+      }
+
+      /**
+       * Renders Client Testimonials dynamically from cmsState.clients.
+       */
+      function renderClientsGrid() {
+        const gridEl = document.getElementById('cms-clients-grid');
+        if (!gridEl) return;
+
+        gridEl.innerHTML = cmsState.clients
+          .map(
+            (cli) => `
+            <div class="bg-card border border-white/10 p-8 flex flex-col justify-between">
+              <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed italic mb-6">
+                &ldquo;${cli.quote}&rdquo;
+              </p>
+              <div class="border-t border-white/10 pt-4 flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-extrabold uppercase tracking-wider text-white block">${cli.name}</span>
+                  <span class="text-[10px] uppercase tracking-editorial text-neutral-400">${cli.role}</span>
+                </div>
+                <span class="text-[10px] font-mono text-rosso font-bold">${cli.vehicle}</span>
+              </div>
+            </div>
+          `
+          )
+          .join('');
+      }
+
+      /**
+       * Renders filtered vehicle cards into the Models Showcase grid.
+       */
+      function renderModelsGrid(selectedCategory) {
+        const gridEl = document.getElementById('models-grid');
+        if (!gridEl) return;
+
+        activeFilterCategory = selectedCategory || activeFilterCategory;
+        const allModels = cmsState.fleet;
+        const filteredModels =
+          activeFilterCategory === 'All'
+            ? allModels
+            : allModels.filter((item) => item.category === activeFilterCategory);
+
+        gridEl.innerHTML = filteredModels
+          .map((car) => {
+            return `
+              <article class="group bg-card border border-white/10 hover:border-rosso/80 transition-all duration-300 flex flex-col justify-between rounded-none overflow-hidden">
+                <div>
+                  <!-- Card Image Frame -->
+                  <div class="relative h-56 overflow-hidden bg-canvas">
+                    <img
+                      src="${car.image}"
+                      onerror="this.onerror=null;this.src='https://placehold.co/800x500/242424/da291c?text=${encodeURIComponent(car.name)}';"
+                      alt="${car.name}"
+                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter contrast-115"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-90"></div>
+                    <span class="absolute top-3 left-3 px-3 py-1 bg-canvas/90 border border-white/15 text-[10px] font-bold uppercase tracking-editorial text-white">
+                      ${car.category}
+                    </span>
+                  </div>
+
+                  <!-- Card Details -->
+                  <div class="p-6">
+                    <h3 class="text-xl font-black uppercase tracking-tight text-white group-hover:text-rosso transition-colors">
+                      ${car.name}
+                    </h3>
+                    <p class="text-xs text-neutral-400 mt-1 mb-5 font-medium">
+                      ${car.engine}
+                    </p>
+
+                    <!-- Telemetry Strip -->
+                    <div class="grid grid-cols-3 gap-2 pt-4 border-t border-white/10 text-xs">
+                      <div>
+                        <span class="text-[10px] text-neutral-500 uppercase block">POWER</span>
+                        <span class="font-bold text-white">${car.power}</span>
+                      </div>
+                      <div>
+                        <span class="text-[10px] text-neutral-500 uppercase block">0–100</span>
+                        <span class="font-bold text-white">${car.accel}</span>
+                      </div>
+                      <div>
+                        <span class="text-[10px] text-neutral-500 uppercase block">MAX</span>
+                        <span class="font-bold text-white">${car.speed}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card Footer Actions -->
+                <div class="px-6 pb-6 pt-2 flex items-center gap-2">
+                  <button
+                    type="button"
+                    data-inspect-model="${car.id}"
+                    class="flex-1 py-3 bg-elevated hover:bg-rosso text-white text-[11px] font-bold uppercase tracking-editorial transition-colors rounded-none cursor-pointer"
+                  >
+                    Technical Specs
+                  </button>
+                  <button
+                    type="button"
+                    data-open-booking="${car.name}"
+                    class="px-4 py-3 border border-white/20 hover:border-white text-white text-[11px] font-bold uppercase tracking-editorial transition-colors rounded-none cursor-pointer"
+                    title="Book Test Drive"
+                  >
+                    Drive
+                  </button>
+                </div>
+              </article>
+            `;
+          })
+          .join('');
+      }
+
+      /**
+       * Initializes category filtering tabs and event delegation for model cards.
+       */
+      function initModelsShowcase() {
+        const tabsContainer = document.getElementById('model-filter-tabs');
+        const modelsGrid = document.getElementById('models-grid');
+
+        renderModelsGrid('All');
+
+        if (tabsContainer) {
+          tabsContainer.addEventListener('click', (event) => {
+            const targetBtn = event.target.closest('.filter-tab');
+            if (!targetBtn) return;
+
+            const category = targetBtn.getAttribute('data-category');
+            const allTabs = tabsContainer.querySelectorAll('.filter-tab');
+
+            allTabs.forEach((tab) => {
+              tab.classList.remove('bg-rosso', 'text-white', 'border-rosso');
+              tab.classList.add('bg-card', 'text-neutral-300', 'border-white/10');
+            });
+
+            targetBtn.classList.remove('bg-card', 'text-neutral-300', 'border-white/10');
+            targetBtn.classList.add('bg-rosso', 'text-white', 'border-rosso');
+
+            renderModelsGrid(category);
+          });
+        }
+
+        if (modelsGrid) {
+          modelsGrid.addEventListener('click', (event) => {
+            const inspectBtn = event.target.closest('[data-inspect-model]');
+            if (inspectBtn) {
+              const modelId = inspectBtn.getAttribute('data-inspect-model');
+              openSpecModal(modelId);
+            }
+          });
+        }
+      }
+
+      /**
+       * Opens and populates the Quick-View Technical Specification Modal.
+       */
+      function openSpecModal(modelId) {
+        const modalEl = document.getElementById('spec-modal');
+        const selectedCar = cmsState.fleet.find((item) => item.id === modelId);
+        if (!modalEl || !selectedCar) return;
+
+        document.getElementById('spec-modal-category').textContent = selectedCar.category;
+        document.getElementById('spec-modal-title').textContent = selectedCar.name;
+        document.getElementById('spec-modal-img').src = selectedCar.image;
+        document.getElementById('spec-modal-desc').textContent = selectedCar.description;
+        document.getElementById('spec-modal-engine').textContent = selectedCar.engine;
+        document.getElementById('spec-modal-power').textContent = selectedCar.power;
+        document.getElementById('spec-modal-accel').textContent = selectedCar.accel;
+        document.getElementById('spec-modal-speed').textContent = selectedCar.speed;
+
+        const bookBtn = document.getElementById('spec-modal-book-btn');
+        bookBtn.setAttribute('data-target-model', selectedCar.name);
+
+        modalEl.classList.remove('hidden');
+        modalEl.classList.add('flex');
+      }
+
+      /**
+       * Initializes Quick-View Spec Modal close & booking handoff controls.
+       */
+      function initSpecModal() {
+        const modalEl = document.getElementById('spec-modal');
+        const closeBtn = document.getElementById('close-spec-modal');
+        const bookBtn = document.getElementById('spec-modal-book-btn');
+        const configLink = document.getElementById('spec-modal-config-link');
+
+        const closeModal = () => {
+          if (!modalEl) return;
+          modalEl.classList.add('hidden');
+          modalEl.classList.remove('flex');
+        };
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (configLink) configLink.addEventListener('click', closeModal);
+
+        if (modalEl) {
+          modalEl.addEventListener('click', (event) => {
+            if (event.target === modalEl) closeModal();
+          });
+        }
+
+        if (bookBtn) {
+          bookBtn.addEventListener('click', () => {
+            const chosenModel = bookBtn.getAttribute('data-target-model') || 'SF90 XX Stradale';
+            closeModal();
+            openBookingModal(chosenModel);
+          });
+        }
+      }
+
+      /**
+       * Initializes the Atelier Paint & Brake Caliper Studio Previewer.
+       */
+      function initAtelierConfigurator() {
+        const paintContainer = document.getElementById('paint-swatches');
+        const caliperContainer = document.getElementById('caliper-swatches');
+        const reserveBtn = document.getElementById('request-build-btn');
+
+        const state = {
+          paint: 'Rosso Corsa',
+          caliper: 'Giallo Modena',
+        };
+
+        const updateSummaryBadge = () => {
+          const badgeEl = document.getElementById('config-summary-badge');
+          if (badgeEl) {
+            badgeEl.textContent = `${state.paint} / ${state.caliper} Calipers`;
+          }
+        };
+
+        if (paintContainer) {
+          paintContainer.addEventListener('click', (event) => {
+            const btn = event.target.closest('.paint-btn');
+            if (!btn) return;
+
+            const paintName = btn.getAttribute('data-paint');
+            const paintHex = btn.getAttribute('data-hex');
+            const paintCode = btn.getAttribute('data-code');
+            const interiorTrim = btn.getAttribute('data-interior');
+
+            state.paint = paintName;
+
+            // Update active border states
+            paintContainer.querySelectorAll('.paint-btn').forEach((item) => {
+              item.classList.remove('border-2', 'border-rosso');
+              item.classList.add('border', 'border-white/15');
+            });
+            btn.classList.remove('border', 'border-white/15');
+            btn.classList.add('border-2', 'border-rosso');
+
+            // Update SVG Body Fill & Ambient Glow
+            const carBodyEl = document.getElementById('svg-car-body');
+            const ambientEl = document.getElementById('studio-ambient-glow');
+            if (carBodyEl) carBodyEl.setAttribute('fill', paintHex);
+            if (ambientEl) ambientEl.style.backgroundColor = paintHex;
+
+            // Update Text Readouts
+            document.getElementById('preview-paint-title').textContent = paintName.toUpperCase();
+            document.getElementById('preview-paint-code').textContent = paintCode;
+            document.getElementById('preview-interior-name').textContent = interiorTrim;
+            updateSummaryBadge();
+          });
+        }
+
+        if (caliperContainer) {
+          caliperContainer.addEventListener('click', (event) => {
+            const btn = event.target.closest('.caliper-btn');
+            if (!btn) return;
+
+            const caliperName = btn.getAttribute('data-caliper');
+            const caliperHex = btn.getAttribute('data-caliper-hex');
+
+            state.caliper = caliperName;
+
+            caliperContainer.querySelectorAll('.caliper-btn').forEach((item) => {
+              item.classList.remove('border-2', 'border-rosso');
+              item.classList.add('border', 'border-white/15');
+            });
+            btn.classList.remove('border', 'border-white/15');
+            btn.classList.add('border-2', 'border-rosso');
+
+            const frontCaliper = document.getElementById('svg-caliper-front');
+            const rearCaliper = document.getElementById('svg-caliper-rear');
+            if (frontCaliper) frontCaliper.setAttribute('fill', caliperHex);
+            if (rearCaliper) rearCaliper.setAttribute('fill', caliperHex);
+
+            document.getElementById('preview-caliper-name').textContent = caliperName;
+            updateSummaryBadge();
+          });
+        }
+
+        if (reserveBtn) {
+          reserveBtn.addEventListener('click', () => {
+            openBookingModal(`Atelier Spec: ${state.paint} (${state.caliper} Calipers)`);
+          });
+        }
+      }
+
+      /**
+       * Opens the Test Drive / Private Inquiry Modal pre-populated with model info.
+       */
+      function openBookingModal(prefillModel) {
+        const modalEl = document.getElementById('booking-modal');
+        const formEl = document.getElementById('booking-form');
+        const confirmEl = document.getElementById('booking-confirmation');
+        const errorEl = document.getElementById('booking-error');
+        const modelInput = document.getElementById('client-model');
+
+        if (!modalEl) return;
+
+        // Reset modal state
+        if (formEl) formEl.classList.remove('hidden');
+        if (confirmEl) confirmEl.classList.add('hidden');
+        if (errorEl) errorEl.classList.add('hidden');
+        if (modelInput && prefillModel) modelInput.value = prefillModel;
+
+        modalEl.classList.remove('hidden');
+        modalEl.classList.add('flex');
+      }
+
+      /**
+       * Initializes Test Drive Booking Modal, global triggers, and validation.
+       */
+      function initBookingModal() {
+        const modalEl = document.getElementById('booking-modal');
+        const closeBtn = document.getElementById('close-booking-modal');
+        const resetBtn = document.getElementById('reset-booking-btn');
+        const formEl = document.getElementById('booking-form');
+
+        const closeBooking = () => {
+          if (!modalEl) return;
+          modalEl.classList.add('hidden');
+          modalEl.classList.remove('flex');
+        };
+
+        // Delegate any button with [data-open-booking]
+        document.addEventListener('click', (event) => {
+          const trigger = event.target.closest('[data-open-booking]');
+          if (trigger) {
+            const targetModel = trigger.getAttribute('data-open-booking');
+            openBookingModal(targetModel);
+          }
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeBooking);
+        if (resetBtn) resetBtn.addEventListener('click', closeBooking);
+
+        if (modalEl) {
+          modalEl.addEventListener('click', (event) => {
+            if (event.target === modalEl) closeBooking();
+          });
+        }
+
+        if (formEl) {
+          formEl.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const nameVal = document.getElementById('client-name').value.trim();
+            const emailVal = document.getElementById('client-email').value.trim();
+            const phoneVal = document.getElementById('client-phone').value.trim();
+            const modelVal = document.getElementById('client-model').value.trim();
+            const showroomVal = document.getElementById('client-showroom').value;
+            const errorEl = document.getElementById('booking-error');
+            const confirmEl = document.getElementById('booking-confirmation');
+            const detailEl = document.getElementById('booking-confirmation-detail');
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!nameVal || !emailPattern.test(emailVal) || !phoneVal) {
+              errorEl.classList.remove('hidden');
+              return;
+            }
+
+            errorEl.classList.add('hidden');
+            formEl.classList.add('hidden');
+            confirmEl.classList.remove('hidden');
+
+            detailEl.textContent = `Thank you, ${nameVal}. Your private request for the ${modelVal} at ${showroomVal} has been assigned to a Senior Ezz ElArab Specialist.`;
+            formEl.reset();
+          });
+        }
+      }
+
+      /**
+       * Initializes Mobile Navigation Drawer toggle.
+       */
+      function initNavigation() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && mobileMenu) {
+          menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+
+          mobileMenu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+              mobileMenu.classList.add('hidden');
+            });
+          });
+        }
+      }
+
+      /**
+       * Initializes the inline Contact Us section form submission and validation.
+       */
+      function initContactForm() {
+        const contactForm = document.getElementById('contact-section-form');
+        const feedbackEl = document.getElementById('contact-feedback');
+        if (!contactForm || !feedbackEl) return;
+
+        contactForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          const nameVal = document.getElementById('contact-name').value.trim();
+          const emailVal = document.getElementById('contact-email').value.trim();
+          const messageVal = document.getElementById('contact-message').value.trim();
+          const topicVal = document.getElementById('contact-topic').value;
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (!nameVal || !emailPattern.test(emailVal) || !messageVal) {
+            feedbackEl.textContent = 'Please complete your name, valid email, and message.';
+            feedbackEl.classList.remove('hidden', 'text-emerald-400');
+            feedbackEl.classList.add('text-rosso');
+            return;
+          }
+
+          feedbackEl.textContent = `Dossier received, ${nameVal}. A Senior Specialist for ${topicVal} will respond within 24 hours.`;
+          feedbackEl.classList.remove('hidden', 'text-rosso');
+          feedbackEl.classList.add('text-emerald-400');
+          contactForm.reset();
+        });
+      }
+
+      /**
+       * Syncs all Admin CMS Drawer inputs and dynamic lists with current cmsState.
+       */
+      function syncAdminInputsFromState() {
+        // 1. Theme pickers & hex fields
+        Object.entries(cmsState.theme).forEach(([key, val]) => {
+          const picker = document.getElementById(`picker-${key}`);
+          const hexInput = document.getElementById(`hex-${key}`);
+          if (picker) picker.value = val;
+          if (hexInput) hexInput.value = val;
+        });
+
+        // 2. Text inputs
+        document.querySelectorAll('.cms-text-input').forEach((input) => {
+          const key = input.getAttribute('data-text-key');
+          if (key && cmsState.texts[key] !== undefined) {
+            input.value = cmsState.texts[key];
+          }
+        });
+
+        // 3. Hero & About Media
+        const heroThumb = document.getElementById('thumb-heroImage');
+        const heroUrlInput = document.getElementById('input-img-heroImage');
+        if (heroThumb) heroThumb.src = cmsState.media.heroImage;
+        if (heroUrlInput) heroUrlInput.value = cmsState.media.heroImage;
+
+        const aboutThumb = document.getElementById('thumb-aboutImage');
+        const aboutUrlInput = document.getElementById('input-img-aboutImage');
+        if (aboutThumb) aboutThumb.src = cmsState.media.aboutImage;
+        if (aboutUrlInput) aboutUrlInput.value = cmsState.media.aboutImage;
+
+        // 4. Fleet Media List
+        renderAdminMediaFleetList();
+
+        // 5. CRUD Lists (Models, Services, Clients)
+        renderAdminModelsCrudList();
+        renderAdminServicesCrudList();
+        renderAdminClientsCrudList();
+      }
+
+      /**
+       * Renders image editors for every car in cmsState.fleet.
+       */
+      function renderAdminMediaFleetList() {
+        const container = document.getElementById('admin-models-media-list');
+        if (!container) return;
+
+        container.innerHTML = cmsState.fleet
+          .map(
+            (car, idx) => `
+            <div class="p-3.5 bg-canvas border border-white/10 flex flex-col sm:flex-row gap-4 items-center">
+              <img src="${car.image}" alt="${car.name}" class="w-32 h-20 object-cover border border-white/20 shrink-0" />
+              <div class="flex-1 w-full space-y-2">
+                <span class="text-xs font-extrabold uppercase text-white block">${car.name}</span>
+                <input
+                  type="url"
+                  data-fleet-img-idx="${idx}"
+                  value="${car.image}"
+                  class="admin-fleet-img-url w-full px-3 py-1.5 bg-card border border-white/15 text-xs text-white"
+                />
+                <label class="inline-block px-3 py-1 bg-elevated hover:bg-rosso text-[10px] font-bold uppercase tracking-wider text-white cursor-pointer">
+                  Upload File
+                  <input type="file" accept="image/*" data-fleet-img-upload="${idx}" class="hidden" />
+                </label>
+              </div>
+            </div>
+          `
+          )
+          .join('');
+      }
+
+      /**
+       * Renders editable cards for Car Models in Tab 4.
+       */
+      function renderAdminModelsCrudList() {
+        const container = document.getElementById('admin-models-crud-list');
+        if (!container) return;
+
+        container.innerHTML = cmsState.fleet
+          .map(
+            (car, idx) => `
+            <div class="p-4 bg-canvas border border-white/15 space-y-3" data-model-index="${idx}">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black uppercase text-white">#${idx + 1} &bull; ${car.name}</span>
+                <button
+                  type="button"
+                  data-delete-model="${idx}"
+                  class="text-[10px] font-bold uppercase tracking-wider text-rosso hover:underline cursor-pointer"
+                >
+                  Delete
+                </button>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <input type="text" data-model-field="name" data-idx="${idx}" value="${car.name}" placeholder="Model Name" class="admin-model-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <select data-model-field="category" data-idx="${idx}" class="admin-model-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white">
+                  <option value="Range" ${car.category === 'Range' ? 'selected' : ''}>Range</option>
+                  <option value="Special Series" ${car.category === 'Special Series' ? 'selected' : ''}>Special Series</option>
+                  <option value="Icona" ${car.category === 'Icona' ? 'selected' : ''}>Icona</option>
+                </select>
+                <input type="text" data-model-field="engine" data-idx="${idx}" value="${car.engine}" placeholder="Engine" class="admin-model-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <input type="text" data-model-field="power" data-idx="${idx}" value="${car.power}" placeholder="Power (e.g. 1,000 cv)" class="admin-model-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <input type="text" data-model-field="accel" data-idx="${idx}" value="${car.accel}" placeholder="0-100 km/h" class="admin-model-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <input type="text" data-model-field="speed" data-idx="${idx}" value="${car.speed}" placeholder="Top Speed" class="admin-model-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+              </div>
+              <textarea rows="2" data-model-field="description" data-idx="${idx}" placeholder="Description" class="admin-model-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white">${car.description}</textarea>
+            </div>
+          `
+          )
+          .join('');
+      }
+
+      /**
+       * Renders editable cards for Services in Tab 4.
+       */
+      function renderAdminServicesCrudList() {
+        const container = document.getElementById('admin-services-crud-list');
+        if (!container) return;
+
+        container.innerHTML = cmsState.services
+          .map(
+            (srv, idx) => `
+            <div class="p-4 bg-canvas border border-white/15 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase text-white">${srv.title}</span>
+                <button type="button" data-delete-service="${idx}" class="text-[10px] font-bold uppercase text-rosso hover:underline cursor-pointer">
+                  Delete
+                </button>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <input type="text" data-srv-field="tag" data-idx="${idx}" value="${srv.tag}" placeholder="Tag (e.g. 01 / ATELIER)" class="admin-srv-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <input type="text" data-srv-field="title" data-idx="${idx}" value="${srv.title}" placeholder="Service Title" class="admin-srv-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+              </div>
+              <textarea rows="2" data-srv-field="description" data-idx="${idx}" placeholder="Description" class="admin-srv-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white">${srv.description}</textarea>
+            </div>
+          `
+          )
+          .join('');
+      }
+
+      /**
+       * Renders editable cards for Clients in Tab 4.
+       */
+      function renderAdminClientsCrudList() {
+        const container = document.getElementById('admin-clients-crud-list');
+        if (!container) return;
+
+        container.innerHTML = cmsState.clients
+          .map(
+            (cli, idx) => `
+            <div class="p-4 bg-canvas border border-white/15 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase text-white">${cli.name}</span>
+                <button type="button" data-delete-client="${idx}" class="text-[10px] font-bold uppercase text-rosso hover:underline cursor-pointer">
+                  Delete
+                </button>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <input type="text" data-cli-field="name" data-idx="${idx}" value="${cli.name}" placeholder="Client Name" class="admin-cli-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <input type="text" data-cli-field="role" data-idx="${idx}" value="${cli.role}" placeholder="Location / Title" class="admin-cli-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+                <input type="text" data-cli-field="vehicle" data-idx="${idx}" value="${cli.vehicle}" placeholder="Vehicle Tag" class="admin-cli-input px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white" />
+              </div>
+              <textarea rows="2" data-cli-field="quote" data-idx="${idx}" placeholder="Client Quote" class="admin-cli-input w-full px-2.5 py-1.5 bg-card border border-white/15 text-xs text-white">${cli.quote}</textarea>
+            </div>
+          `
+          )
+          .join('');
+      }
+
+      /**
+       * Initializes the comprehensive Admin Panel CMS Drawer & all real-time bindings.
+       */
+      function initAdminPanelCms() {
+        const drawerEl = document.getElementById('admin-cms-drawer');
+        const openHeaderBtn = document.getElementById('open-admin-header-btn');
+        const openMobileBtn = document.getElementById('open-admin-mobile-btn');
+        const floatingBtn = document.getElementById('floating-admin-btn');
+        const closeBtn = document.getElementById('close-admin-drawer-btn');
+        const tabsBar = document.getElementById('admin-tabs-bar');
+
+        const openDrawer = () => {
+          if (!drawerEl) return;
+          syncAdminInputsFromState();
+          drawerEl.classList.remove('hidden');
+          drawerEl.classList.add('flex');
+        };
+
+        const closeDrawer = () => {
+          if (!drawerEl) return;
+          drawerEl.classList.add('hidden');
+          drawerEl.classList.remove('flex');
+        };
+
+        [openHeaderBtn, openMobileBtn, floatingBtn].forEach((btn) => {
+          if (btn) btn.addEventListener('click', openDrawer);
+        });
+        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+        if (drawerEl) {
+          drawerEl.addEventListener('click', (e) => {
+            if (e.target === drawerEl) closeDrawer();
+          });
+        }
+
+        // Keyboard shortcut Ctrl+Shift+A / Cmd+Shift+A
+        document.addEventListener('keydown', (e) => {
+          if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'a') {
+            e.preventDefault();
+            if (drawerEl && drawerEl.classList.contains('hidden')) {
+              openDrawer();
+            } else {
+              closeDrawer();
+            }
+          }
+        });
+
+        // Admin Tab Switching
+        if (tabsBar) {
+          tabsBar.addEventListener('click', (e) => {
+            const tabBtn = e.target.closest('.admin-tab-btn');
+            if (!tabBtn) return;
+            const targetTab = tabBtn.getAttribute('data-admin-tab');
+
+            tabsBar.querySelectorAll('.admin-tab-btn').forEach((b) => {
+              b.classList.remove('bg-rosso', 'text-white');
+              b.classList.add('text-neutral-300');
+            });
+            tabBtn.classList.remove('text-neutral-300');
+            tabBtn.classList.add('bg-rosso', 'text-white');
+
+            document.querySelectorAll('.admin-tab-panel').forEach((panel) => {
+              panel.classList.add('hidden');
+            });
+            const activePanel = document.getElementById(`admin-panel-${targetTab}`);
+            if (activePanel) activePanel.classList.remove('hidden');
+          });
+        }
+
+        // Theme Color Pickers & Hex Inputs
+        const presets = {
+          rosso: {
+            accent: '#da291c',
+            canvas: '#181818',
+            card: '#242424',
+            elevated: '#303030',
+            textPrimary: '#ffffff',
+            textSecondary: '#a3a3a3',
+          },
+          giallo: {
+            accent: '#e5b800',
+            canvas: '#121212',
+            card: '#1d1d1f',
+            elevated: '#2a2a2e',
+            textPrimary: '#ffffff',
+            textSecondary: '#b0b0b5',
+          },
+          pozzi: {
+            accent: '#2563eb',
+            canvas: '#0e131b',
+            card: '#161e2b',
+            elevated: '#212c3f',
+            textPrimary: '#f8fafc',
+            textSecondary: '#94a3b8',
+          },
+          verde: {
+            accent: '#10b981',
+            canvas: '#0f1714',
+            card: '#17231f',
+            elevated: '#21322c',
+            textPrimary: '#f8fafc',
+            textSecondary: '#9ca3af',
+          },
+        };
+
+        document.querySelectorAll('.preset-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const presetName = btn.getAttribute('data-preset');
+            if (!presets[presetName]) return;
+            cmsState.theme = { ...cmsState.theme, ...presets[presetName] };
+            applyThemeToDom();
+            syncAdminInputsFromState();
+            saveCmsState(`Applied ${presetName.toUpperCase()} Preset`);
+          });
+        });
+
+        document.querySelectorAll('[data-color-key]').forEach((picker) => {
+          picker.addEventListener('input', (e) => {
+            const key = picker.getAttribute('data-color-key');
+            const val = e.target.value;
+            cmsState.theme[key] = val;
+            const hexInput = document.getElementById(`hex-${key}`);
+            if (hexInput) hexInput.value = val;
+            applyThemeToDom();
+            saveCmsState();
+          });
+        });
+
+        document.querySelectorAll('[data-color-hex]').forEach((hexInput) => {
+          hexInput.addEventListener('input', (e) => {
+            const key = hexInput.getAttribute('data-color-hex');
+            const val = e.target.value.trim();
+            if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+              cmsState.theme[key] = val;
+              const picker = document.getElementById(`picker-${key}`);
+              if (picker) picker.value = val;
+              applyThemeToDom();
+              saveCmsState();
+            }
+          });
+        });
+
+        // Live Text Editing
+        document.querySelectorAll('.cms-text-input').forEach((input) => {
+          input.addEventListener('input', (e) => {
+            const key = input.getAttribute('data-text-key');
+            if (!key) return;
+            cmsState.texts[key] = e.target.value;
+            applyTextsAndMediaToDom();
+            saveCmsState();
+          });
+        });
+
+        // Hero & About Image URLs + FileReader Uploads
+        ['heroImage', 'aboutImage'].forEach((mediaKey) => {
+          const urlInput = document.getElementById(`input-img-${mediaKey}`);
+          if (urlInput) {
+            urlInput.addEventListener('input', (e) => {
+              cmsState.media[mediaKey] = e.target.value.trim();
+              const thumb = document.getElementById(`thumb-${mediaKey}`);
+              if (thumb) thumb.src = cmsState.media[mediaKey];
+              applyTextsAndMediaToDom();
+              saveCmsState();
+            });
+          }
+        });
+
+        document.querySelectorAll('[data-upload-image]').forEach((fileInput) => {
+          fileInput.addEventListener('change', (e) => {
+            const mediaKey = fileInput.getAttribute('data-upload-image');
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+              cmsState.media[mediaKey] = reader.result;
+              syncAdminInputsFromState();
+              applyTextsAndMediaToDom();
+              saveCmsState('Image Uploaded & Applied');
+            };
+            reader.readAsDataURL(file);
+          });
+        });
+
+        document.querySelectorAll('[data-reset-image]').forEach((resetBtn) => {
+          resetBtn.addEventListener('click', () => {
+            const mediaKey = resetBtn.getAttribute('data-reset-image');
+            const defaults = getDefaultCmsState();
+            cmsState.media[mediaKey] = defaults.media[mediaKey];
+            syncAdminInputsFromState();
+            applyTextsAndMediaToDom();
+            saveCmsState('Image Reset to Default');
+          });
+        });
+
+        // Fleet Media Delegation
+        const fleetMediaList = document.getElementById('admin-models-media-list');
+        if (fleetMediaList) {
+          fleetMediaList.addEventListener('input', (e) => {
+            const urlInp = e.target.closest('.admin-fleet-img-url');
+            if (!urlInp) return;
+            const idx = Number(urlInp.getAttribute('data-fleet-img-idx'));
+            if (cmsState.fleet[idx]) {
+              cmsState.fleet[idx].image = urlInp.value.trim();
+              const cardImg = urlInp.closest('div.p-3\\.5')?.querySelector('img');
+              if (cardImg) cardImg.src = cmsState.fleet[idx].image;
+              renderModelsGrid(activeFilterCategory);
+              saveCmsState();
+            }
+          });
+
+          fleetMediaList.addEventListener('change', (e) => {
+            const fileInp = e.target.closest('[data-fleet-img-upload]');
+            if (!fileInp) return;
+            const idx = Number(fileInp.getAttribute('data-fleet-img-upload'));
+            const file = e.target.files && e.target.files[0];
+            if (!file || !cmsState.fleet[idx]) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+              cmsState.fleet[idx].image = reader.result;
+              renderAdminMediaFleetList();
+              renderModelsGrid(activeFilterCategory);
+              saveCmsState('Vehicle Image Updated');
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+
+        // CRUD Delegation: Car Models
+        const modelsCrud = document.getElementById('admin-models-crud-list');
+        if (modelsCrud) {
+          modelsCrud.addEventListener('input', (e) => {
+            const fieldEl = e.target.closest('.admin-model-input');
+            if (!fieldEl) return;
+            const idx = Number(fieldEl.getAttribute('data-idx'));
+            const field = fieldEl.getAttribute('data-model-field');
+            if (cmsState.fleet[idx] && field) {
+              cmsState.fleet[idx][field] = fieldEl.value;
+              renderModelsGrid(activeFilterCategory);
+              renderAdminMediaFleetList();
+              saveCmsState();
+            }
+          });
+
+          modelsCrud.addEventListener('click', (e) => {
+            const delBtn = e.target.closest('[data-delete-model]');
+            if (!delBtn) return;
+            const idx = Number(delBtn.getAttribute('data-delete-model'));
+            cmsState.fleet.splice(idx, 1);
+            renderAdminModelsCrudList();
+            renderAdminMediaFleetList();
+            renderModelsGrid(activeFilterCategory);
+            saveCmsState('Vehicle Removed');
+          });
+        }
+
+        const addModelBtn = document.getElementById('admin-add-model-btn');
+        if (addModelBtn) {
+          addModelBtn.addEventListener('click', () => {
+            cmsState.fleet.unshift({
+              id: `custom-${Date.now()}`,
+              name: 'F80 Hypercar Edition',
+              category: 'Special Series',
+              engine: '3.0L V6 Hybrid Twin-Turbo',
+              power: '1,200 cv',
+              accel: '2.15 sec',
+              speed: '350 km/h',
+              image:
+                'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80',
+              description: 'Bespoke Ezz ElArab limited-series hypercar engineered with active ground-effect aerodynamics.',
+            });
+            renderAdminModelsCrudList();
+            renderAdminMediaFleetList();
+            renderModelsGrid(activeFilterCategory);
+            saveCmsState('New Vehicle Added');
+          });
+        }
+
+        // CRUD Delegation: Services
+        const servicesCrud = document.getElementById('admin-services-crud-list');
+        if (servicesCrud) {
+          servicesCrud.addEventListener('input', (e) => {
+            const fieldEl = e.target.closest('.admin-srv-input');
+            if (!fieldEl) return;
+            const idx = Number(fieldEl.getAttribute('data-idx'));
+            const field = fieldEl.getAttribute('data-srv-field');
+            if (cmsState.services[idx] && field) {
+              cmsState.services[idx][field] = fieldEl.value;
+              renderServicesGrid();
+              saveCmsState();
+            }
+          });
+
+          servicesCrud.addEventListener('click', (e) => {
+            const delBtn = e.target.closest('[data-delete-service]');
+            if (!delBtn) return;
+            const idx = Number(delBtn.getAttribute('data-delete-service'));
+            cmsState.services.splice(idx, 1);
+            renderAdminServicesCrudList();
+            renderServicesGrid();
+            saveCmsState('Service Removed');
+          });
+        }
+
+        const addServiceBtn = document.getElementById('admin-add-service-btn');
+        if (addServiceBtn) {
+          addServiceBtn.addEventListener('click', () => {
+            cmsState.services.push({
+              id: `srv-${Date.now()}`,
+              tag: `0${cmsState.services.length + 1} / BESPOKE`,
+              title: 'PRIVATE AIR-FREIGHT CONCIERGE',
+              description:
+                'Door-to-circuit enclosed logistics for international collectors attending European track events.',
+              cta: 'Inquire Now →',
+              actionType: 'booking',
+              actionTarget: 'Private Air-Freight Concierge',
+            });
+            renderAdminServicesCrudList();
+            renderServicesGrid();
+            saveCmsState('New Service Added');
+          });
+        }
+
+        // CRUD Delegation: Clients
+        const clientsCrud = document.getElementById('admin-clients-crud-list');
+        if (clientsCrud) {
+          clientsCrud.addEventListener('input', (e) => {
+            const fieldEl = e.target.closest('.admin-cli-input');
+            if (!fieldEl) return;
+            const idx = Number(fieldEl.getAttribute('data-idx'));
+            const field = fieldEl.getAttribute('data-cli-field');
+            if (cmsState.clients[idx] && field) {
+              cmsState.clients[idx][field] = fieldEl.value;
+              renderClientsGrid();
+              saveCmsState();
+            }
+          });
+
+          clientsCrud.addEventListener('click', (e) => {
+            const delBtn = e.target.closest('[data-delete-client]');
+            if (!delBtn) return;
+            const idx = Number(delBtn.getAttribute('data-delete-client'));
+            cmsState.clients.splice(idx, 1);
+            renderAdminClientsCrudList();
+            renderClientsGrid();
+            saveCmsState('Client Removed');
+          });
+        }
+
+        const addClientBtn = document.getElementById('admin-add-client-btn');
+        if (addClientBtn) {
+          addClientBtn.addEventListener('click', () => {
+            cmsState.clients.push({
+              id: `cli-${Date.now()}`,
+              name: 'MARCO BELLINI',
+              role: 'ZURICH • PRIVATE COLLECTOR',
+              vehicle: '12CILINDRI',
+              quote:
+                'Unmatched attention to detail from initial clay model review in Ezz ElArab to private delivery at Fiorano.',
+            });
+            renderAdminClientsCrudList();
+            renderClientsGrid();
+            saveCmsState('New Client Testimonial Added');
+          });
+        }
+
+        // Save, Export JSON, Import JSON & Reset All
+        const saveBtn = document.getElementById('cms-save-btn');
+        if (saveBtn) {
+          saveBtn.addEventListener('click', () => {
+            saveCmsState('All Site Changes Saved');
+          });
+        }
+
+        const exportBtn = document.getElementById('cms-export-btn');
+        if (exportBtn) {
+          exportBtn.addEventListener('click', () => {
+            const blob = new Blob([JSON.stringify(cmsState, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Ezz ElArab-atelier-config.json';
+            link.click();
+            URL.revokeObjectURL(url);
+            triggerToast('JSON Configuration Exported');
+          });
+        }
+
+        const importInput = document.getElementById('cms-import-input');
+        if (importInput) {
+          importInput.addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+              try {
+                const imported = JSON.parse(reader.result);
+                const defaults = getDefaultCmsState();
+                cmsState = {
+                  theme: { ...defaults.theme, ...(imported.theme || {}) },
+                  texts: { ...defaults.texts, ...(imported.texts || {}) },
+                  media: { ...defaults.media, ...(imported.media || {}) },
+                  fleet: Array.isArray(imported.fleet) ? imported.fleet : defaults.fleet,
+                  services: Array.isArray(imported.services) ? imported.services : defaults.services,
+                  clients: Array.isArray(imported.clients) ? imported.clients : defaults.clients,
+                };
+                applyThemeToDom();
+                applyTextsAndMediaToDom();
+                renderModelsGrid(activeFilterCategory);
+                renderServicesGrid();
+                renderClientsGrid();
+                syncAdminInputsFromState();
+                saveCmsState('Configuration Imported Successfully');
+              } catch (err) {
+                triggerToast('Invalid JSON Configuration File');
+              }
+            };
+            reader.readAsText(file);
+          });
+        }
+
+        const resetAllBtn = document.getElementById('cms-reset-all-btn');
+        if (resetAllBtn) {
+          resetAllBtn.addEventListener('click', () => {
+            localStorage.removeItem(STORAGE_KEY);
+            cmsState = getDefaultCmsState();
+            applyThemeToDom();
+            applyTextsAndMediaToDom();
+            renderModelsGrid('All');
+            renderServicesGrid();
+            renderClientsGrid();
+            syncAdminInputsFromState();
+            triggerToast('Website Restored to Factory Defaults');
+          });
+        }
+      }
+
+      // Bootstrap all modules once DOM is ready
+      document.addEventListener('DOMContentLoaded', () => {
+        applyThemeToDom();
+        applyTextsAndMediaToDom();
+        renderServicesGrid();
+        renderClientsGrid();
+        initNavigation();
+        initModelsShowcase();
+        initSpecModal();
+        initAtelierConfigurator();
+        initBookingModal();
+        initContactForm();
+        initAdminPanelCms();
+      });
+    })();
+  </script>
+</body>
+</html>
